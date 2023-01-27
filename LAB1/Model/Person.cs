@@ -17,9 +17,10 @@ namespace Model
             }
             private set
             {
-                _name = ChekString(value, nameof(Name));
+                _name = CheckString(value, nameof(Name));
             }    
         }
+
         public string Surname
         {
             get
@@ -28,11 +29,18 @@ namespace Model
             }
             private set
             {
-                _surname = ChekString(value, nameof(Surname));
+                _surname = CheckString(value, nameof(Surname));
             }
         }
-
-        private string ChekString(string value, string propertyName)
+        
+        /// <summary>
+        /// Метод проверяющий заполнение имени и фамилии
+        /// </summary>
+        /// <param name="value">Имя или Фамилия</param>
+        /// <param name="propertyName">приоритетность имени</param>
+        /// <returns>Возвращается имя и фамилия</returns>
+        /// <exception cref="ArgumentException"></exception>
+        private string CheckString(string value, string propertyName)
         {
             if (value == null)
             {
@@ -45,7 +53,6 @@ namespace Model
             }
             return value;
         }
-
 
 
         internal string _name;
