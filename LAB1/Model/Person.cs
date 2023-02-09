@@ -32,7 +32,21 @@ namespace Model
                 _surname = CheckString(value, nameof(Surname));
             }
         }
-        
+
+        public int Age
+        {
+            get
+            {
+                return _age;
+            }
+
+            private set
+            {
+                _age = CheckAge(value);
+            }
+        }
+
+
         /// <summary>
         /// Метод проверяющий заполнение имени и фамилии
         /// </summary>
@@ -44,17 +58,27 @@ namespace Model
         {
             if (value == null)
             {
-                throw new ArgumentException($"{propertyName} should not be null!");
+                throw new ArgumentException($"{propertyName} не должен" +
+                    $" принимать значения null!");
             }
 
             if (value == string.Empty)
             {
-                throw new ArgumentException($"{propertyName} should not be empty!");
+                throw new ArgumentException($"{propertyName} не должен" +
+                    $" быть пустым!");
             }
             return value;
         }
 
-
+        private int CheckAge(int value)
+        {
+            if (value < 0 | value > 150)
+            {
+                throw new ArgumentException($"{value} не мдолжен быть " +
+                    $"отрицательным и больше 150!");
+            }
+            return value;
+        }
         internal string _name;
 
         private string _surname;
@@ -79,7 +103,7 @@ namespace Model
             Name = name;
             Surname = surname;
 
-            _age = age;
+            Age = age;
             _gender = gender;
         }
 
@@ -104,6 +128,8 @@ namespace Model
         {
             _age++;
         }
-        
+
+        public void GetRandomPerson ()
+        { } 
     }
 }

@@ -6,7 +6,19 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    internal class PersonList
+    public class PersonList
     {
+      Person this[int index]
+        {
+            get { }
+            set { }
+        }
+
+
+        public int DleteByIndex(int index)
+        {
+            return index;
+        }
+
     }
 }
