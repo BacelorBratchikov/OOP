@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
+    // TODO: add person in person именно сюда добавить, так как ввод новой персоны из консоли.
     public class PersonList
     {
       Person this[int index]
