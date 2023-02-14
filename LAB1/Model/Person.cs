@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Text.RegularExpressions;
 
 namespace Model
@@ -8,8 +8,27 @@ namespace Model
     /// </summary>
     public class Person
     {
+        /// <summary>
+        /// Имя.
+        /// </summary>
+        private string _name;
 
-        public string Name 
+        /// <summary>
+        /// Фамилия.
+        /// </summary>
+        private string _surname;
+
+        /// <summary>
+        /// Возраст.
+        /// </summary>
+        private int _age;
+
+        /// <summary>
+        /// Пол.
+        /// </summary>
+        private Gender _gender;
+
+        public string Name
         {
             get
             {
@@ -18,7 +37,7 @@ namespace Model
             private set
             {
                 _name = CheckString(value, nameof(Name));
-            }    
+            }
         }
 
         public string Surname
@@ -46,7 +65,6 @@ namespace Model
             }
         }
 
-
         /// <summary>
         /// Метод проверяющий заполнение имени и фамилии
         /// </summary>
@@ -56,17 +74,13 @@ namespace Model
         /// <exception cref="ArgumentException"></exception>
         private string CheckString(string value, string propertyName)
         {
-            if (value == null)
-            {
-                throw new ArgumentException($"{propertyName} не должен" +
-                    $" принимать значения null!");
-            }
 
-            if (value == string.Empty)
+            if (string.IsNullOrEmpty(value))
             {
                 throw new ArgumentException($"{propertyName} не должен" +
                     $" быть пустым!");
             }
+
             return value;
         }
 
@@ -77,17 +91,9 @@ namespace Model
                 throw new ArgumentException($"{value} не мдолжен быть " +
                     $"отрицательным и больше 150!");
             }
+
             return value;
         }
-        internal string _name;
-
-        private string _surname;
-
-        private int _age;
-
-        private Gender _gender;
-
-        public Person Partner;
 
         /// <summary>
         /// Создается эеземпляр класса <see cref="Person"/>.
@@ -107,7 +113,7 @@ namespace Model
             _gender = gender;
         }
 
-        public Person(string name, string surname, int age): 
+        public Person(string name, string surname, int age):
             this (name, surname, age, default(Gender)) { }
 
         /// <summary>
@@ -117,19 +123,7 @@ namespace Model
         public string GetInfo()
         {
             return $"Person name: {_name}, surname {_surname}," +
-                $" age is {_age}, gender is {_gender}. \n" +
-                $"Person Partner {Partner?.GetInfo()}";
+                $" age is {_age}, gender is {_gender}. \n";
         }
-
-        /// <summary>
-        /// Функция позволяет добавлять год при праздновании ДР
-        /// </summary>
-        public void CelebrateHappyBerthday()
-        {
-            _age++;
-        }
-
-        public void GetRandomPerson ()
-        { } 
     }
 }
