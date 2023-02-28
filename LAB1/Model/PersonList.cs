@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,12 +9,15 @@ namespace Model
     // TODO: add person in person именно сюда добавить, так как ввод новой персоны из консоли.
     public class PersonList
     {
-      Person this[int index]
+        private Person[] ListPerson = new Person[0];
+
+        /*
+        private Person this[int index]
         {
             get { }
             set { }
         }
-
+        */
 
         public int DleteByIndex(int index)
         {

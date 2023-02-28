@@ -3,7 +3,7 @@ namespace Model
     /// <summary>
     /// Класс содержит в себе список имен и фамилий и создает рандомную персону.
     /// </summary>
-    public class GetRandomPerson
+    public class GeneratorRandomPersons
     {
         /// <summary>
         /// Спсиок мужских имен.
@@ -72,12 +72,12 @@ namespace Model
         /// Этот метод создает рандомную персону.
         /// </summary>
         /// <returns> Возвращает новую персону со всеми атрибутами. </returns>
-        public Person RandomPerson()
+        public Person GetRandomPerson()
         {
             Random rnd = new Random();
 
             Gender gender = (Gender)rnd.Next(2);
-            int age = rnd.Next(0, 150);
+            int age = rnd.Next(Person.MinAge, Person.MaxAge);
             string name;
             string surname;
 

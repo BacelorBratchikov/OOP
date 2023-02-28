@@ -1,16 +1,20 @@
-﻿using Model;
-
+//using Model;
 
 namespace ConsoleApp
 {
-    internal class Program
+    /// <summary>
+    /// Основной класс.
+    /// </summary>
+    public class Program
     {
         /// <summary>
-        /// Основная функция, которая создает Персон
+        /// Точка входа в программу.
         /// </summary>
-        /// <param name="args"></param>
-        static void Main(string[] args)
+        /// <param name="args">Параметры.</param>
+        private static void Main(string[] args)
         {
+            Console.WriteLine("Hellow World");
+            /*
             try
             {
                 Person person = new Person(string.Empty, "Ivanov", 20, Gender.Male);
@@ -24,10 +28,12 @@ namespace ConsoleApp
                     Console.WriteLine(exeption.Message);
                 }
             }
+            GeneratorRandomPersons genRandPerson = new GeneratorRandomPersons();
 
-            Person partner = new Person("Anastasia", "Kuznetsova", 19, Gender.Female);
-
-            Console.ReadKey();
+            var randPerson = genRandPerson.GetRandomPerson();
+            Console.WriteLine(randPerson.ToString);
+            //Console.ReadKey();
+            */
         }
     }
 }
