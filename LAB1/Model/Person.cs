@@ -1,3 +1,6 @@
+using System.Globalization;
+using System.Text.RegularExpressions;
+
 namespace Model
 {
     /// <summary>
@@ -47,7 +50,8 @@ namespace Model
 
             private set
             {
-                _name = CheckString(value, nameof(Name));
+                CheckString(value, nameof(Name));
+                _name = EditRegister(value);
             }
         }
 
@@ -63,7 +67,9 @@ namespace Model
 
             private set
             {
-                _surname = CheckString(value, nameof(Surname));
+                CheckString(value, nameof(Surname));
+                CheckNameAndSurname();
+                _surname = EditRegister(value);
             }
         }
 
@@ -84,7 +90,7 @@ namespace Model
         }
 
         /// <summary>
-        /// Gets пол.
+        /// Gets or sets пол.
         /// </summary>
         public Gender Gender
         {
@@ -104,18 +110,65 @@ namespace Model
         /// </summary>
         /// <param name="value">Имя или Фамилия.</param>
         /// <param name="propertyName">приоритетность имени.</param>
-        /// <returns>Возвращается имя и фамилия.</returns>
         /// <exception cref="ArgumentException">Ловится ошибка.</exception>
-        private string CheckString(string value, string propertyName)
+        private void CheckString(string value, string propertyName)
         {
-
             if (string.IsNullOrEmpty(value))
             {
                 throw new ArgumentException($"{propertyName} не должен" +
                     $" быть пустым!");
             }
+        }
 
-            return value;
+        /// <summary>
+        /// Метод распознает язык в строке.
+        /// </summary>
+        /// <param name="name">Строка.</param>
+        private static Language CheckLanguage(string name)
+        {
+            var engLanguage = new Regex(@"^[A-z]+(-[A-z])?[A-z]*$");
+            var rusLanguage = new Regex(@"^[А-я]+(-[А-я])?[А-я]*$");
+
+            if (engLanguage.IsMatch(name))
+            {
+                return Language.English;
+            }
+            else if (rusLanguage.IsMatch(name))
+            {
+                return Language.Russian;
+            }
+            else
+            {
+                throw new ArgumentException("Я тебя не понимать! Ты " +
+                    "что-то не так вводишь. Только русский или английский!");
+            }
+        }
+
+        /// <summary>
+        /// Проверяет имя и фамилию на язык.
+        /// </summary>
+        /// <exception cref="FormatException">Один язык.</exception>
+        private void CheckNameAndSurname()
+        {
+            var nameLanguage = CheckLanguage(Name);
+            var surnameLanguage = CheckLanguage(Surname);
+
+            if (nameLanguage != surnameLanguage)
+            {
+                throw new FormatException("Имя и фамилия должны быть " +
+                    "написаны на одном языке.");
+            }
+        }
+
+        /// <summary>
+        /// Приводит строку к соответствующему регистру.
+        /// </summary>
+        /// <param name="name">Имя или фамилия.</param>
+        /// <returns>Имя или фамилия с учетом регистров.</returns>
+        private static string EditRegister(string name)
+        {
+            return CultureInfo.CurrentCulture.TextInfo.
+                ToTitleCase(name.ToLower());
         }
 
         /// <summary>
@@ -180,13 +233,13 @@ namespace Model
         { }
 
         /// <summary>
-        /// Функция возвращает информацию о персонах
+        /// Функция возвращает информацию о персонах.
         /// </summary>
-        /// <returns>Возвращает информацию о персонах</returns>
+        /// <returns>Возвращает информацию о персонах.</returns>
         public string GetInfo()
         {
-            return $"Имя персоны: {_name}, фамилия: {_surname}," +
-                $" возраст: {_age}, пол: {_gender}. \n";
+            return $"Имя персоны: {Name}, фамилия: {Surname}," +
+                $" возраст: {Age}, пол: {Gender}. \n";
         }
     }
 }

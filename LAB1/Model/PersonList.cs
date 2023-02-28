@@ -7,18 +7,22 @@ using System.Threading.Tasks;
 namespace Model
 {
     // TODO: add person in person именно сюда добавить, так как ввод новой персоны из консоли.
+
+    /// <summary>
+    /// Класс Список персон.
+    /// </summary>
     public class PersonList
     {
-        private Person[] ListPerson = new Person[0];
+        /// <summary>
+        /// Список людей.
+        /// </summary>
+        private Person[] _personList = new Person[0];
 
-        /*
-        private Person this[int index]
-        {
-            get { }
-            set { }
-        }
-        */
-
+        /// <summary>
+        /// Удаление по индексу.
+        /// </summary>
+        /// <param name="index">Индекс.</param>
+        /// <returns>Индекс.</returns>
         public int DleteByIndex(int index)
         {
             return index;

@@ -1,4 +1,4 @@
-//using Model;
+using Model;
 
 namespace ConsoleApp
 {
@@ -13,27 +13,33 @@ namespace ConsoleApp
         /// <param name="args">Параметры.</param>
         private static void Main(string[] args)
         {
-            Console.WriteLine("Hellow World");
-            /*
-            try
-            {
-                Person person = new Person(string.Empty, "Ivanov", 20, Gender.Male);
-            }
+            Console.WriteLine(@"Press any key to start...\n");
+            Console.WriteLine();
+            Console.ReadKey();
+            Console.WriteLine(@"Step 1. Two lists of persons are creating, " +
+                "each contains three persons...\n");
+            Console.WriteLine();
+            Console.ReadKey();
 
-            catch (ArgumentException exeption)
-            {
-                if (exeption.GetType() == typeof(ArgumentNullException)
-                    || exeption.GetType() == typeof(ArgumentException))
-                {
-                    Console.WriteLine(exeption.Message);
-                }
-            }
-            GeneratorRandomPersons genRandPerson = new GeneratorRandomPersons();
+            var listOne = new PersonList();
+            var listTwo = new PersonList();
 
-            var randPerson = genRandPerson.GetRandomPerson();
-            Console.WriteLine(randPerson.ToString);
-            //Console.ReadKey();
-            */
+            var arrayOne = new Person[]
+            {
+                new Person("q", "w", 40, Gender.Male),
+                new Person("e", "Fry", 28, Gender.Male),
+                new Person("Sw", "w", 10, Gender.Female),
+            };
+
+            var arrayTwo = new Person[]
+            {
+                new Person("e", "r", 12, Gender.Male),
+                new Person("q", "q", 11, Gender.Male),
+                new Person("w", "w", 50, Gender.Male),
+            };
+
+            listOne.AddArrayOfPeople(arrayOne);
+            listTwo.AddArrayOfPeople(arrayTwo);
         }
     }
 }
