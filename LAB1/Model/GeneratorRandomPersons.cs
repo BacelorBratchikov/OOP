@@ -9,7 +9,7 @@ namespace Model
         /// <summary>
         /// Спсиок мужских имен.
         /// </summary>
-        private string[] _maleName =
+        private static string[] _maleName =
         {
             "Артём",
             "Александр",
@@ -30,7 +30,7 @@ namespace Model
         /// <summary>
         /// Список женских имен.
         /// </summary>
-        private string[] _femaleName =
+        private static string[] _femaleName =
         {
             "София",
             "Анастасия",
@@ -51,7 +51,7 @@ namespace Model
         /// <summary>
         /// Список фамилий.
         /// </summary>
-        private string[] _surname =
+        private static string[] _surname =
         {
             "Иванов",
             "Смирнов",
@@ -73,7 +73,7 @@ namespace Model
         /// Этот метод создает рандомную персону.
         /// </summary>
         /// <returns> Возвращает новую персону со всеми атрибутами. </returns>
-        public Person GetRandomPerson()
+        public static Person GetRandomPerson()
         {
             Random rnd = new Random();
 

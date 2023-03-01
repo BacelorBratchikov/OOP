@@ -129,19 +129,24 @@ namespace Model
             var engLanguage = new Regex(@"^[A-z]+(-[A-z])?[A-z]*$");
             var rusLanguage = new Regex(@"^[А-я]+(-[А-я])?[А-я]*$");
 
-            if (engLanguage.IsMatch(name))
+            if (string.IsNullOrEmpty(name) == false)
             {
-                return Language.English;
+                if (engLanguage.IsMatch(name))
+                {
+                    return Language.English;
+                }
+                else if (rusLanguage.IsMatch(name))
+                {
+                    return Language.Russian;
+                }
+                else
+                {
+                    throw new ArgumentException("Я тебя не понимать! Ты " +
+                        "что-то не так вводишь. Только русский или английский!");
+                }
             }
-            else if (rusLanguage.IsMatch(name))
-            {
-                return Language.Russian;
-            }
-            else
-            {
-                throw new ArgumentException("Я тебя не понимать! Ты " +
-                    "что-то не так вводишь. Только русский или английский!");
-            }
+
+            return Language.Basurman;
         }
 
         /// <summary>
@@ -150,13 +155,17 @@ namespace Model
         /// <exception cref="FormatException">Один язык.</exception>
         private void CheckNameAndSurname()
         {
-            var nameLanguage = CheckLanguage(Name);
-            var surnameLanguage = CheckLanguage(Surname);
-
-            if (nameLanguage != surnameLanguage)
+            if ((string.IsNullOrEmpty(Name) == false)
+                && (string.IsNullOrEmpty(Surname) == false))
             {
-                throw new FormatException("Имя и фамилия должны быть " +
-                    "написаны на одном языке.");
+                var nameLanguage = CheckLanguage(Name);
+                var surnameLanguage = CheckLanguage(Surname);
+
+                if (nameLanguage != surnameLanguage)
+                {
+                    throw new FormatException("Имя и фамилия должны быть " +
+                        "написаны на одном языке.");
+                }
             }
         }
 
@@ -238,8 +247,8 @@ namespace Model
         /// <returns>Возвращает информацию о персонах.</returns>
         public string GetInfo()
         {
-            return $"Имя персоны: {Name}, фамилия: {Surname}," +
-                $" возраст: {Age}, пол: {Gender}. \n";
+            return $"{Name}\t {Surname}, \t" +
+                $"возраст: {Age}, пол: {Gender}. \n";
         }
     }
 }

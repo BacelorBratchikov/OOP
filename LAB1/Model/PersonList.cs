@@ -45,7 +45,7 @@ namespace Model
         /// Удаление по индексу.
         /// </summary>
         /// <param name="index">Индекс.</param>
-        public void DleteByIndex(int index)
+        public void DeleteByIndex(int index)
         {
             _people.RemoveAt(index);
         }
@@ -55,7 +55,7 @@ namespace Model
         /// </summary>
         /// <param name="index">Индекс человека.</param>
         /// <returns>возвращает значение по указанному индексу.</returns>
-        public Person FindByIndex(int index)
+        public Person FindPersonByIndex(int index)
         {
             if (index >= 0 && index + 1 <= _people.Count)
             {
@@ -72,10 +72,7 @@ namespace Model
         /// Количество персон в списке.
         /// </summary>
         /// <returns>Количество персон.</returns>
-        public int CountByPerson()
-        {
-            return _people.Count;
-        }
+        public int CountByPerson() => _people.Count;
 
         /// <summary>
         /// Добавить в список персон коллекцию или массив.

@@ -1,14 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Model
 {
+    /// <summary>
+    /// Спсиок гендеров.
+    /// </summary>
     public enum Gender
     {
+        /// <summary>
+        /// Мальчик.
+        /// </summary>
         Male,
+
+        /// <summary>
+        /// Девочка.
+        /// </summary>
         Female
     }
 }
