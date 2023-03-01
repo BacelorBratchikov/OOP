@@ -13,10 +13,11 @@ namespace ConsoleApp
         /// <param name="args">Параметры.</param>
         private static void Main(string[] args)
         {
-            Console.WriteLine(@"Press any key to start...\n");
+            Console.WriteLine("Привет!");
+            Console.WriteLine("Нажми на кнопку чтобы продолжить!\n");
             Console.WriteLine();
             Console.ReadKey();
-            Console.WriteLine(@"Step 1. Two lists of persons are creating, " +
+            Console.WriteLine("Step 1. Two lists of persons are creating, " +
                 "each contains three persons...\n");
             Console.WriteLine();
             Console.ReadKey();

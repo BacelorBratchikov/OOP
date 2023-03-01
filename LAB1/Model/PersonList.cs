@@ -1,32 +1,89 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Model
 {
-    // TODO: add person in person именно сюда добавить, так как ввод новой персоны из консоли.
-
     /// <summary>
     /// Класс Список персон.
     /// </summary>
     public class PersonList
     {
+        private List<Person> _people = new List<Person>();
+
         /// <summary>
-        /// Список людей.
+        /// Добавить персону.
         /// </summary>
-        private Person[] _personList = new Person[0];
+        /// <param name="person">Экземпляр списка персон.</param>
+        public void AddPerson(Person person)
+        {
+            _people.Add(person);
+        }
+
+        /// <summary>
+        /// Возвращает индекс элемента при наличии его в списке.
+        /// </summary>
+        /// <param name="person">Экземпляр класса Персона.</param>
+        /// <returns>Индекс экземпляра класса.</returns>
+        public int GetIndexOfPerson(Person person)
+        {
+            if (_people.Contains(person))
+            {
+                return _people.BinarySearch(person);
+            }
+            else
+            {
+                throw new Exception("Этой персоны нет в спсике!");
+            }
+        }
+
+        /// <summary>
+        /// Очистка всего спсика.
+        /// </summary>
+        public void ClearPerson()
+        {
+            _people.Clear();
+        }
 
         /// <summary>
         /// Удаление по индексу.
         /// </summary>
         /// <param name="index">Индекс.</param>
-        /// <returns>Индекс.</returns>
-        public int DleteByIndex(int index)
+        public void DleteByIndex(int index)
         {
-            return index;
+            _people.RemoveAt(index);
         }
 
+        /// <summary>
+        /// Поиск элемента по индексу.
+        /// </summary>
+        /// <param name="index">Индекс человека.</param>
+        /// <returns>возвращает значение по указанному индексу.</returns>
+        public Person FindByIndex(int index)
+        {
+            if (index >= 0 && index + 1 <= _people.Count)
+            {
+                return _people[index];
+            }
+            else
+            {
+                throw new Exception("По данному индексу ничего" +
+                    " не удается найти!");
+            }
+        }
+
+        /// <summary>
+        /// Количество персон в списке.
+        /// </summary>
+        /// <returns>Количество персон.</returns>
+        public int CountByPerson()
+        {
+            return _people.Count;
+        }
+
+        /// <summary>
+        /// Добавить в список персон коллекцию или массив.
+        /// </summary>
+        /// <param name="list">Коллекция персон.</param>
+        public void AddRangeInList(Person[] list)
+        {
+            _people.AddRange(list);
+        }
     }
 }
