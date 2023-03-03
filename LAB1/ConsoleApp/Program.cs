@@ -18,6 +18,7 @@ namespace ConsoleApp
                 " персонам и их именам. Это просто люди для лабораторной.");
             Console.WriteLine("Нажми на кнопку чтобы начать приключение!\n");
             _ = Console.ReadKey();
+
             Console.WriteLine("Шаг 1. Создание двух списиков.\n");
             _ = Console.ReadKey();
 
@@ -26,16 +27,16 @@ namespace ConsoleApp
 
             var collectionOne = new Person[]
             {
-                new Person("Иван", "Романов", 40, Gender.Male),
-                new Person("Петр", "Романов", 28, Gender.Male),
-                new Person("Анна", "Ионовна", 30, Gender.Female),
+                new Person("Магистр", "Йода", 900, Gender.Male),
+                new Person("Энакин", "Скайуокер", 43, Gender.Male),
+                new Person("Оби-Ван", "Кеноби", 57, Gender.Male),
             };
 
             var collectionTwo = new Person[]
             {
-                new Person("Билл", "Харрингтон", 49, Gender.Male),
-                new Person("Ван", "Даркхолм", 48, Gender.Male),
-                new Person("Рикардо", "Милос", 35, Gender.Male),
+                new Person("Дарт", "Тиранус", 83, Gender.Male),
+                new Person("Дарт", "Сидиус", 86, Gender.Male),
+                new Person("Дарт", "Мол", 35, Gender.Male),
             };
 
             listOne.AddRangeInList(collectionOne);
@@ -50,7 +51,7 @@ namespace ConsoleApp
 
             Console.WriteLine("\nВторой созданный список:");
             PrintList(listTwo);
-            
+
             Console.WriteLine("Шаг 3. Создание рандомной персоны");
             _ = Console.ReadKey();
 
@@ -94,9 +95,33 @@ namespace ConsoleApp
             Console.WriteLine("\nВторой список:");
             PrintList(listTwo);
 
-            // TODO: Ввод с консоли
+            try
+            {
+                var inputPerson = InputPersonByConsole();
+                Console.WriteLine(inputPerson.GetInfo());
+            }
+            catch (Exception exception)
+            {
+                if (exception.GetType() == typeof(IndexOutOfRangeException)
+                        || exception.GetType() == typeof(FormatException)
+                        || exception.GetType() == typeof(ArgumentException))
+                {
+                    Console.WriteLine
+                    ($"Ой, возникла ошибка. Ошибка: {exception.Message}.");
+                }
+                else
+                {
+                    throw exception;
+                }
+            }
         }
 
+        /// <summary>
+        /// Метод предназначен для вывода всех перосн из списка в консоль.
+        /// </summary>
+        /// <param name="personList">Спсиок персон.</param>
+        /// <exception cref="NullReferenceException">
+        /// Не существует спсика.</exception>
         private static void PrintList(PersonList personList)
         {
             if (personList == null)
@@ -115,6 +140,98 @@ namespace ConsoleApp
             else
             {
                 Console.WriteLine("Список пустой.");
+            }
+        }
+
+        /// <summary>
+        /// Метод позволяющий вводить персону с консоли.
+        /// </summary>
+        /// <returns>Введеная персона.</returns>
+        /// <exception cref="ArgumentException">Ошибочки.</exception>
+        public static Person InputPersonByConsole()
+        {
+            var person = new Person();
+
+            var actionList = new List<(Action, string)>
+            {
+                (
+                new Action(() =>
+                {
+                    Console.Write($"Введи имя наделенного силой: ");
+                    person.Name = Console.ReadLine();
+                }), "Имя"),
+
+                (new Action(() =>
+                {
+                    Console.Write($"Так, а теперь его фамилию: ");
+                    person.Surname = Console.ReadLine();
+                }), "Фамилия"),
+
+                (new Action(() =>
+                {
+                    Console.Write($"Твой возраст: ");
+                    _ = int.TryParse(Console.ReadLine(), out int tmpAge);
+                    person.Age = tmpAge;
+                }), "возраст"),
+
+                (new Action(() =>
+                {
+                    Console.Write
+                        ($"Введи пол обладателя силы:" +
+                        $" (1 - Мужской or 2 - Женский): ");
+                    _ = int.TryParse(Console.ReadLine(), out int tmpGender);
+                    if (tmpGender < 1 || tmpGender > 2)
+                    {
+                        throw new IndexOutOfRangeException
+                            ("Тебе стоит пересмотреть свои убеждения" +
+                    " существует только мужской пол - 1и женский - 2!");
+                    }
+
+                    var realGender = tmpGender == 1
+                        ? Gender.Male
+                        : Gender.Female;
+                    person.Gender = realGender;
+                }), "пол")
+            };
+
+            foreach (var action in actionList)
+            {
+                ActionHandler(action.Item1, action.Item2);
+            }
+
+            return person;
+        }
+
+        /// <summary>
+        /// Метод обрабатывает твои действия.
+        /// </summary>
+        /// <param name="action">Содержит действие.</param>
+        /// <param name="propertyName">Дополнительные параметры.</param>
+        private static void ActionHandler(Action action, string propertyName)
+        {
+            while (true)
+            {
+                try
+                {
+                    action.Invoke();
+                    break;
+                }
+                catch (Exception exception)
+                {
+                    if (exception.GetType()
+                        == typeof(IndexOutOfRangeException)
+                        || exception.GetType() == typeof(FormatException)
+                        || exception.GetType() == typeof(ArgumentException))
+                    {
+                        Console.WriteLine($"Некорректный введен(о) " +
+                        $"{propertyName}. Ошибка: {exception.Message}" +
+                        $" Пробуй ввести {propertyName} еще раз.");
+                    }
+                    else
+                    {
+                        throw exception;
+                    }
+                }
             }
         }
     }

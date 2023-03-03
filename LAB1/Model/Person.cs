@@ -31,15 +31,15 @@ namespace Model
         /// <summary>
         /// Минимальный возраст.
         /// </summary>
-        public const int MinAge = 0;
+        public const int MinAge = 4;
 
         /// <summary>
         /// Максимальный возраст.
         /// </summary>
-        public const int MaxAge = 150;
+        public const int MaxAge = 1000;
 
         /// <summary>
-        /// Gets имя.
+        /// Gets or sets имя.
         /// </summary>
         public string Name
         {
@@ -48,15 +48,16 @@ namespace Model
                 return _name;
             }
 
-            private set
+            set
             {
-                CheckString(value, nameof(Name));
                 _name = EditRegister(value);
+                CheckString(value, nameof(_name));
+                _ = CheckLanguage(_name);
             }
         }
 
         /// <summary>
-        /// Gets фамилия.
+        /// Gets or sets фамилия.
         /// </summary>
         public string Surname
         {
@@ -65,16 +66,16 @@ namespace Model
                 return _surname;
             }
 
-            private set
+            set
             {
-                CheckString(value, nameof(Surname));
-                CheckNameAndSurname();
                 _surname = EditRegister(value);
+                CheckString(value, nameof(_surname));
+                CheckNameAndSurname();
             }
         }
 
         /// <summary>
-        /// Gets возраст.
+        /// Gets or sets возраст.
         /// </summary>
         public int Age
         {
@@ -83,7 +84,7 @@ namespace Model
                 return _age;
             }
 
-            private set
+            set
             {
                 _age = CheckAge(value);
             }
@@ -99,7 +100,7 @@ namespace Model
                 return _gender;
             }
 
-            private set
+            set
             {
                 _gender = value;
             }
@@ -155,17 +156,13 @@ namespace Model
         /// <exception cref="FormatException">Один язык.</exception>
         private void CheckNameAndSurname()
         {
-            if ((string.IsNullOrEmpty(Name) == false)
-                && (string.IsNullOrEmpty(Surname) == false))
-            {
-                var nameLanguage = CheckLanguage(Name);
-                var surnameLanguage = CheckLanguage(Surname);
+            var nameLanguage = CheckLanguage(Name);
+            var surnameLanguage = CheckLanguage(Surname);
 
-                if (nameLanguage != surnameLanguage)
-                {
-                    throw new FormatException("Имя и фамилия должны быть " +
-                        "написаны на одном языке.");
-                }
+            if (nameLanguage != surnameLanguage)
+            {
+                throw new FormatException("Имя и фамилия должны быть " +
+                    "написаны на одном языке.");
             }
         }
 
@@ -194,22 +191,6 @@ namespace Model
                     $"меньше {MinAge} и больше {MaxAge}!");
             }
 
-            return value;
-        }
-
-        /// <summary>
-        /// Метод проверяющий заполнение пола.
-        /// </summary>
-        /// <param name="value">Пол.</param>
-        /// <returns>Пол.</returns>
-        /// <exception cref="Exception">Ловится ошибка.</exception>
-        private int CheckGender(int value)
-        {
-            if (value != (1 | 0))
-            {
-                throw new Exception("Тебе стоит пересмотреть свои убеждения" +
-                    " существует только мужской пол - 0 и женский - 1!");
-            }
             else
             {
                 return value;
