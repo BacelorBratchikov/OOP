@@ -110,7 +110,7 @@ namespace ConsoleApp
                 "которую создашь именно ты!");
             _ = Console.ReadKey();
 
-
+            //TODO: duplication
             try
             {
                 var inputPerson = InputPersonByConsole();
@@ -225,6 +225,7 @@ namespace ConsoleApp
         /// <param name="propertyName">Дополнительные параметры.</param>
         private static void ActionHandler(Action action, string propertyName)
         {
+            //TODO: duplication
             while (true)
             {
                 try

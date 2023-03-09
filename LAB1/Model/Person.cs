@@ -190,7 +190,6 @@ namespace Model
                 throw new ArgumentException($"{value} не должен быть " +
                     $"меньше {MinAge} и больше {MaxAge}!");
             }
-
             else
             {
                 return value;

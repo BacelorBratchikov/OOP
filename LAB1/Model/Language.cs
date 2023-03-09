@@ -10,6 +10,7 @@ namespace Model
         /// </summary>
         English,
 
+        //TODO: XML
         /// <summary>
         /// Aнглицкий язык.
         /// </summary>

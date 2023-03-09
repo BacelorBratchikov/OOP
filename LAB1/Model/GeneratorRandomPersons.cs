@@ -6,6 +6,7 @@ namespace Model
     /// </summary>
     public class GeneratorRandomPersons
     {
+        //TODO: rename
         /// <summary>
         /// Спсиок мужских имен.
         /// </summary>
@@ -27,6 +28,7 @@ namespace Model
             "Алексей"
         };
 
+        //TODO: rename
         /// <summary>
         /// Список женских имен.
         /// </summary>
@@ -48,6 +50,7 @@ namespace Model
             "Вероника"
         };
 
+        //TODO: rename
         /// <summary>
         /// Список фамилий.
         /// </summary>
@@ -87,7 +90,6 @@ namespace Model
                 name = _maleName[new Random().Next(1, _maleName.Length)];
                 surname = _surname[new Random().Next(1, _surname.Length)];
             }
-
             else
             {
                 name = _femaleName[new Random().Next(1, _femaleName.Length)];

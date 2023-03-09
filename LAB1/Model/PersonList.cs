@@ -5,6 +5,7 @@ namespace Model
     /// </summary>
     public class PersonList
     {
+        //TODO: XML
         private List<Person> _people = new List<Person>();
 
         /// <summary>
