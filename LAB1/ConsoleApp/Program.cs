@@ -46,10 +46,10 @@ namespace ConsoleApp
                 "посмотреть кого ты создал? Нажми на кнопку! (шаг 2)");
             _ = Console.ReadKey();
 
-            Console.WriteLine("\nПервый созданный список:");
+            Console.WriteLine("\nПервый созданный список (Орден джедаев):");
             PrintList(listOne);
 
-            Console.WriteLine("\nВторой созданный список:");
+            Console.WriteLine("\nВторой созданный список (Орден ситхов):");
             PrintList(listTwo);
 
             Console.WriteLine("Шаг 3. Создание рандомной персоны");
@@ -61,7 +61,7 @@ namespace ConsoleApp
             Console.WriteLine("Теперь добавляем персону в первый спсиок");
             listOne.AddPerson(randomPerson);
 
-            Console.WriteLine("\nПервый список:");
+            Console.WriteLine("\nОрден джедаев:");
             PrintList(listOne);
 
             Console.WriteLine("Шаг 4. Скопируем вторую персону " +
@@ -69,10 +69,10 @@ namespace ConsoleApp
             _ = Console.ReadKey();
             listTwo.AddPerson(listOne.FindPersonByIndex(1));
 
-            Console.WriteLine("\nПервый список:");
+            Console.WriteLine("\nОрден джедаев:");
             PrintList(listOne);
 
-            Console.WriteLine("\nВторой список:");
+            Console.WriteLine("\nОрден ситхов:");
             PrintList(listTwo);
 
             Console.WriteLine("Шаг 5. Удалим второго человека " +
@@ -85,13 +85,13 @@ namespace ConsoleApp
 
             listOne.DeleteByIndex(1);
 
-            Console.WriteLine("\nПервый список:");
+            Console.WriteLine("\nОрден джедаев:");
             PrintList(listOne);
 
-            Console.WriteLine("\nВторой список:");
+            Console.WriteLine("\nОрден ситхов:");
             PrintList(listTwo);
 
-            Console.WriteLine("Шаг 6. Очистим второй спсиок.");
+            Console.WriteLine("Шаг 6. Очистим первый спсиок.");
             _ = Console.ReadKey();
 
             Console.WriteLine("Палпатин: \"Власть ситхов вновь " +
@@ -101,7 +101,7 @@ namespace ConsoleApp
 
             listTwo.ClearPerson();
 
-            Console.WriteLine("\nВторой список:");
+            Console.WriteLine("\nОрден джедаев:");
             PrintList(listTwo);
 
             Console.WriteLine("Орден Джедаев уничтожен!");
