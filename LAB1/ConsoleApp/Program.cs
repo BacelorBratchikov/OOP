@@ -79,6 +79,10 @@ namespace ConsoleApp
                 "из первого спсика.");
             _ = Console.ReadKey();
 
+            Console.WriteLine("Энакин, ты должен был бороться " +
+                "со злом, а не примкнуть к нему!");
+            _ = Console.ReadKey();
+
             listOne.DeleteByIndex(1);
 
             Console.WriteLine("\nПервый список:");
@@ -90,10 +94,22 @@ namespace ConsoleApp
             Console.WriteLine("Шаг 6. Очистим второй спсиок.");
             _ = Console.ReadKey();
 
+            Console.WriteLine("Палпатин: \"Власть ситхов вновь " +
+                "воцарится над галлактикой. И везде снова настанет " +
+                "мир. Вот время и настало. Выполнить приказ 66!\"");
+            _ = Console.ReadKey();
+
             listTwo.ClearPerson();
 
             Console.WriteLine("\nВторой список:");
             PrintList(listTwo);
+
+            Console.WriteLine("Орден Джедаев уничтожен!");
+
+            Console.WriteLine("Настало время новой надежды, " +
+                "которую создашь именно ты!");
+            _ = Console.ReadKey();
+
 
             try
             {
