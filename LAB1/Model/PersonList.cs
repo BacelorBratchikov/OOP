@@ -60,6 +60,7 @@ namespace Model
         /// <returns>возвращает значение по указанному индексу.</returns>
         public Person FindPersonByIndex(int index)
         {
+            //TODO: BUG
             if (index >= 0 && index + 1 <= _people.Count)
             {
                 return _people[index];
