@@ -52,6 +52,8 @@ namespace ConsoleApp
             Console.WriteLine("\nВторой созданный список (Орден ситхов):");
             PrintList(listTwo);
 
+            Console.WriteLine(listOne.FindPersonByIndex(1).GetInfo());
+
             Console.WriteLine("Шаг 3. Создание рандомной персоны");
             _ = Console.ReadKey();
 
