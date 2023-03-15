@@ -6,11 +6,10 @@ namespace Model
     /// </summary>
     public class GeneratorRandomPersons
     {
-        //TODO: rename
         /// <summary>
         /// Спсиок мужских имен.
         /// </summary>
-        private static string[] _maleName =
+        private static string[] _maleNames =
         {
             "Артём",
             "Александр",
@@ -28,11 +27,10 @@ namespace Model
             "Алексей"
         };
 
-        //TODO: rename
         /// <summary>
         /// Список женских имен.
         /// </summary>
-        private static string[] _femaleName =
+        private static string[] _femaleNames =
         {
             "София",
             "Анастасия",
@@ -50,11 +48,10 @@ namespace Model
             "Вероника"
         };
 
-        //TODO: rename
         /// <summary>
         /// Список фамилий.
         /// </summary>
-        private static string[] _surname =
+        private static string[] _surnames =
         {
             "Иванов",
             "Смирнов",
@@ -87,13 +84,13 @@ namespace Model
 
             if (gender == Gender.Male)
             {
-                name = _maleName[new Random().Next(1, _maleName.Length)];
-                surname = _surname[new Random().Next(1, _surname.Length)];
+                name = _maleNames[new Random().Next(1, _maleNames.Length)];
+                surname = _surnames[new Random().Next(1, _surnames.Length)];
             }
             else
             {
-                name = _femaleName[new Random().Next(1, _femaleName.Length)];
-                surname = _surname[new Random().Next(1, _surname.Length)] + "а";
+                name = _femaleNames[new Random().Next(1, _femaleNames.Length)];
+                surname = _surnames[new Random().Next(1, _surnames.Length)] + "а";
             }
 
             return new Person(name, surname, age, gender);

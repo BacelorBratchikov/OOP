@@ -110,26 +110,8 @@ namespace ConsoleApp
                 "которую создашь именно ты!");
             _ = Console.ReadKey();
 
-            //TODO: duplication
-            try
-            {
-                var inputPerson = InputPersonByConsole();
-                Console.WriteLine(inputPerson.GetInfo());
-            }
-            catch (Exception exception)
-            {
-                if (exception.GetType() == typeof(IndexOutOfRangeException)
-                        || exception.GetType() == typeof(FormatException)
-                        || exception.GetType() == typeof(ArgumentException))
-                {
-                    Console.WriteLine
-                    ($"Ой, возникла ошибка. Ошибка: {exception.Message}.");
-                }
-                else
-                {
-                    throw exception;
-                }
-            }
+            var inputPerson = InputPersonByConsole();
+            Console.WriteLine(inputPerson.GetInfo());
         }
 
         /// <summary>
@@ -225,7 +207,6 @@ namespace ConsoleApp
         /// <param name="propertyName">Дополнительные параметры.</param>
         private static void ActionHandler(Action action, string propertyName)
         {
-            //TODO: duplication
             while (true)
             {
                 try
