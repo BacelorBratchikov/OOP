@@ -5,6 +5,8 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+    <AnalysisLevel>6.0</AnalysisLevel>
     <CodeAnalysisRuleSet>stylecop.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 
@@ -13,6 +15,10 @@
   </ItemGroup>
   
   <ItemGroup>
+    <PackageReference Include="StyleCop.Analyzers.Unstable" Version="1.2.0.435">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <AdditionalFiles Include="stylecop.json" />
   </ItemGroup>
 
