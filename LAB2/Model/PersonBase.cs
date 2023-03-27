@@ -9,12 +9,12 @@ namespace Model
     public abstract class PersonBase
     {
         /// <summary>
-        /// Минимальный возраст.
+        /// Gets минимальный возраст.
         /// </summary>
         public abstract int MinAge { get; }
 
         /// <summary>
-        /// Максимальный возраст.
+        /// Gets максимальный возраст.
         /// </summary>
         public abstract int MaxAge { get; }
 
@@ -130,7 +130,6 @@ namespace Model
         /// </summary>
         public PersonBase()
         { }
-
 
         /// <summary>
         /// Метод проверяющий заполнение имени и фамилии.
