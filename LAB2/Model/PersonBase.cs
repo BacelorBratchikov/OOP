@@ -6,8 +6,18 @@ namespace Model
     /// <summary>
     /// Класс содержит информацию о персонах.
     /// </summary>
-    public class Person
+    public abstract class PersonBase
     {
+        /// <summary>
+        /// Минимальный возраст.
+        /// </summary>
+        public abstract int MinAge { get; }
+
+        /// <summary>
+        /// Максимальный возраст.
+        /// </summary>
+        public abstract int MaxAge { get; }
+
         /// <summary>
         /// Имя.
         /// </summary>
@@ -27,16 +37,6 @@ namespace Model
         /// Пол.
         /// </summary>
         private Gender _gender;
-
-        /// <summary>
-        /// Минимальный возраст.
-        /// </summary>
-        public const int MinAge = 4;
-
-        /// <summary>
-        /// Максимальный возраст.
-        /// </summary>
-        public const int MaxAge = 1000;
 
         /// <summary>
         /// Gets or sets имя.
@@ -105,6 +105,32 @@ namespace Model
                 _gender = value;
             }
         }
+
+        /// <summary>
+        /// Создается экземпляр класса <see cref="PersonBase"/>.
+        /// </summary>
+        /// <param name="name">Имя человека.</param>
+        /// <param name="surname">Фамилия.</param>
+        /// <param name="age">Возраст.</param>
+        /// <param name="gender">Пол.</param>
+        /// <exception cref="ArgumentException">
+        /// Имя не должно быть пустым или null.
+        /// </exception>
+        public PersonBase(string name, string surname, int age, Gender gender)
+        {
+            Name = name;
+            Surname = surname;
+
+            Age = age;
+            Gender = gender;
+        }
+
+        /// <summary>
+        /// Создается пустой экземпляр класса <see cref="PersonBase"/>.
+        /// </summary>
+        public PersonBase()
+        { }
+
 
         /// <summary>
         /// Метод проверяющий заполнение имени и фамилии.
@@ -197,35 +223,10 @@ namespace Model
         }
 
         /// <summary>
-        /// Создается экземпляр класса <see cref="Person"/>.
-        /// </summary>
-        /// <param name="name">Имя человека.</param>
-        /// <param name="surname">Фамилия.</param>
-        /// <param name="age">Возраст.</param>
-        /// <param name="gender">Пол.</param>
-        /// <exception cref="ArgumentException">
-        /// Имя не должно быть пустым или null.
-        /// </exception>
-        public Person(string name, string surname, int age, Gender gender)
-        {
-            Name = name;
-            Surname = surname;
-
-            Age = age;
-            Gender = gender;
-        }
-
-        /// <summary>
-        /// Создается пустой экземпляр класса <see cref="Person"/>.
-        /// </summary>
-        public Person()
-        { }
-
-        /// <summary>
         /// Функция возвращает информацию о персонах.
         /// </summary>
         /// <returns>Возвращает информацию о персонах.</returns>
-        public string GetInfo()
+        public virtual string GetInfo()
         {
             return $"{Name}\t {Surname}, \t" +
                 $"возраст: {Age}, пол: {Gender}. \n";

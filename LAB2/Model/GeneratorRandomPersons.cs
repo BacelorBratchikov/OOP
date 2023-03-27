@@ -73,12 +73,12 @@ namespace Model
         /// Этот метод создает рандомную персону.
         /// </summary>
         /// <returns> Возвращает новую персону со всеми атрибутами. </returns>
-        public static Person GetRandomPerson()
+        public static PersonBase GetRandomPerson()
         {
             Random rnd = new Random();
 
             Gender gender = (Gender)rnd.Next(2);
-            int age = rnd.Next(Person.MinAge, Person.MaxAge);
+            int age = rnd.Next(PersonBase.MinAge, PersonBase.MaxAge);
             string name;
             string surname;
 
@@ -93,7 +93,7 @@ namespace Model
                 surname = _surnames[new Random().Next(1, _surnames.Length)] + "а";
             }
 
-            return new Person(name, surname, age, gender);
+            return new PersonBase(name, surname, age, gender);
         }
     }
 }

@@ -8,13 +8,13 @@ namespace Model
         /// <summary>
         /// Новый список персон.
         /// </summary>
-        private List<Person> _people = new List<Person>();
+        private List<PersonBase> _people = new List<PersonBase>();
 
         /// <summary>
         /// Добавить персону.
         /// </summary>
         /// <param name="person">Экземпляр списка персон.</param>
-        public void AddPerson(Person person)
+        public void AddPerson(PersonBase person)
         {
             _people.Add(person);
         }
@@ -24,7 +24,7 @@ namespace Model
         /// </summary>
         /// <param name="person">Экземпляр класса Персона.</param>
         /// <returns>Индекс экземпляра класса.</returns>
-        public int GetIndexOfPerson(Person person)
+        public int GetIndexOfPerson(PersonBase person)
         {
             if (_people.Contains(person))
             {
@@ -58,7 +58,7 @@ namespace Model
         /// </summary>
         /// <param name="index">Индекс человека.</param>
         /// <returns>возвращает значение по указанному индексу.</returns>
-        public Person FindPersonByIndex(int index)
+        public PersonBase FindPersonByIndex(int index)
         {
             if (index >= 0 && index + 1 <= _people.Count)
             {
@@ -81,7 +81,7 @@ namespace Model
         /// Добавить в список персон коллекцию или массив.
         /// </summary>
         /// <param name="list">Коллекция персон.</param>
-        public void AddRangeInList(Person[] list)
+        public void AddRangeInList(PersonBase[] list)
         {
             _people.AddRange(list);
         }
