@@ -13,7 +13,7 @@ namespace Model
         /// <summary>
         /// Gets максимальный возраст.
         /// </summary>
-        public override int MaxAge => 1000;
+        public override int MaxAge => 150;
 
         /// <summary>
         /// Минимальный номер паспорта.
@@ -106,15 +106,15 @@ namespace Model
         /// <exception cref="ArgumentException">Исключение.</exception>
         public ulong CheckPassport(ulong value)
         {
-            if (value >= MinPassportNumber || value <= MaxPassportNumber)
+            if (value > MaxPassportNumber || value < MinPassportNumber)
             {
-                return value;
+                throw new ArgumentException($"Введён некорректный" +
+                $" номер паспорта, введите " +
+                $" от {MinPassportNumber} до {MaxPassportNumber}!");
             }
             else
             {
-                throw new ArgumentException($"Введён некорректный" +
-                    $" номер паспорта, введите " +
-                    $" от {MinPassportNumber} до {MaxPassportNumber}!");
+                return value;
             }
         }
 
@@ -125,7 +125,7 @@ namespace Model
         public override string GetInfo()
         {
             string personInfo = base.GetInfo();
-            personInfo += $"\nДанные о паспорте: {Рassport}, " +
+            personInfo += $"Данные о паспорте: {Рassport}, " +
                           $"\nСемейное положение: {StatusAdualt}, ";
 
             if (StatusAdualt == MaritalStatus.Married)
@@ -142,11 +142,11 @@ namespace Model
             if (string.IsNullOrEmpty(Job))
             {
                 personInfo += "Тунеядец не нужен государству! " +
-                    "Твой билет отныне - строить БАМ 2!";
+                    "Твой билет отныне - строить БАМ 2!\n";
             }
             else
             {
-                personInfo += Job;
+                personInfo += $"{Job}\n\n";
             }
 
             return personInfo;

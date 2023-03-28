@@ -227,7 +227,7 @@ namespace Model
         /// <returns>Возвращает информацию о персонах.</returns>
         public virtual string GetInfo()
         {
-            return $"{Name}\t {Surname}, \t" +
+            return $"{Name} {Surname}, \t" +
                 $"возраст: {Age}, пол: {Gender}. \n";
         }
     }

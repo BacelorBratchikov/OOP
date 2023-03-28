@@ -57,7 +57,7 @@ namespace Model
         {
             if (perent != null)
             {
-                return $"\n{name}: {perent.Name} {perent.Surname}, ";
+                return $"{name}: {perent.Name} {perent.Surname}, ";
             }
 
             else
@@ -77,16 +77,16 @@ namespace Model
             personInfo += CheckParents(Mother, "Мама");
             personInfo += CheckParents(Father, "Отец");
 
-            personInfo += "\nМесто промывки мозгов ";
+            personInfo += "\nМесто промывки мозгов: ";
             if (string.IsNullOrEmpty(Institution))
             {
                 personInfo += "Этот ребенок не встраивается в систему " +
                     "воспроизводства производственных отношений! Он должен " +
-                    "быть институализирован.";
+                    "быть институализирован.\n";
             }
             else
             {
-                personInfo += Institution;
+                personInfo += $"{Institution}\n\n";
             }
 
             return personInfo;

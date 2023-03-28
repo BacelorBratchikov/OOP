@@ -10,110 +10,56 @@ namespace ConsoleApp
         /// <summary>
         /// Точка входа в программу.
         /// </summary>
-        /// <param name="args">Параметры.</param>
-        private static void Main(string[] args)
+        private static void Main()
         {
-            Console.WriteLine("Привет! Это первая лабораторная работа по" +
-                " ООП. Здесь создаются и удаляются персоны. Не удивляйся" +
-                " персонам и их именам. Это просто люди для лабораторной.");
-            Console.WriteLine("Нажми на кнопку чтобы начать приключение!\n");
+            Console.WriteLine("Приветик, вот мы и встретились" +
+               " на второй лабе) Нажми что-нибудь, чтобы продолжить.");
             _ = Console.ReadKey();
 
-            Console.WriteLine("Шаг 1. Создание двух списиков.\n");
+            Console.WriteLine("Молодец, нажимать на кнопки ты умеешь." +
+                "Раз ты прошел этот тест, то теперь можешь посмотреть" +
+                " как создаются рабочие люди и дети.");
             _ = Console.ReadKey();
 
-            var listOne = new PersonList();
-            var listTwo = new PersonList();
+            var personlist = new PersonList();
 
-            var collectionOne = new Person[]
+            for (int i = 0; i < 7; i++)
             {
-                new Person("Магистр", "Йода", 900, Gender.Male),
-                new Person("Энакин", "Скайуокер", 43, Gender.Male),
-                new Person("Оби-Ван", "Кеноби", 57, Gender.Male),
-            };
+                personlist.AddPerson
+                    (GeneratorRandomPersons.GetRandomAnyPerson());
+            }
 
-            var collectionTwo = new Person[]
+            // Печать исходного списка
+            Console.WriteLine("Список людей:");
+            PrintList(personlist);
+
+            Console.WriteLine("\nНайдем четвертого человека и посмотрим, " +
+                "как этот патирот служит своему отечеству\n");
+            _ = Console.ReadKey();
+
+            PersonBase person = personlist.FindPersonByIndex(3);
+
+            switch (person)
             {
-                new Person("Дарт", "Тиранус", 83, Gender.Male),
-                new Person("Дарт", "Сидиус", 86, Gender.Male),
-                new Person("Дарт", "Мол", 35, Gender.Male),
-            };
+                case Adult adult:
+                    {
+                        Console.WriteLine($"Это взрослый рабочий: " +
+                            $"{adult.Name} {adult.Surname}, " +
+                            $"место работы: {adult.Job}");
+                        break;
+                    }
 
-            listOne.AddRangeInList(collectionOne);
-            listTwo.AddRangeInList(collectionTwo);
+                case Child child:
+                    {
+                        Console.WriteLine($"Это ребенок рабочего: " +
+                            $"{child.Name} {child.Surname}, " +
+                            $"место учебы: {child.Institution}");
+                        break;
+                    }
 
-            Console.WriteLine("Два списка персон созданы, хочешь " +
-                "посмотреть кого ты создал? Нажми на кнопку! (шаг 2)");
-            _ = Console.ReadKey();
-
-            Console.WriteLine("\nПервый созданный список (Орден джедаев):");
-            PrintList(listOne);
-
-            Console.WriteLine("\nВторой созданный список (Орден ситхов):");
-            PrintList(listTwo);
-
-            Console.WriteLine(listOne.FindPersonByIndex(1).GetInfo());
-
-            Console.WriteLine("Шаг 3. Создание рандомной персоны");
-            _ = Console.ReadKey();
-
-            Person randomPerson = GeneratorRandomPersons.GetRandomPerson();
-            Console.WriteLine(randomPerson.GetInfo());
-
-            Console.WriteLine("Теперь добавляем персону в первый спсиок");
-            listOne.AddPerson(randomPerson);
-
-            Console.WriteLine("\nОрден джедаев:");
-            PrintList(listOne);
-
-            Console.WriteLine("Шаг 4. Скопируем вторую персону " +
-                "из первого списка в конец второго спсика.");
-            _ = Console.ReadKey();
-            listTwo.AddPerson(listOne.FindPersonByIndex(1));
-
-            Console.WriteLine("\nОрден джедаев:");
-            PrintList(listOne);
-
-            Console.WriteLine("\nОрден ситхов:");
-            PrintList(listTwo);
-
-            Console.WriteLine("Шаг 5. Удалим второго человека " +
-                "из первого спсика.");
-            _ = Console.ReadKey();
-
-            Console.WriteLine("Энакин, ты должен был бороться " +
-                "со злом, а не примкнуть к нему!");
-            _ = Console.ReadKey();
-
-            listOne.DeleteByIndex(1);
-
-            Console.WriteLine("\nОрден джедаев:");
-            PrintList(listOne);
-
-            Console.WriteLine("\nОрден ситхов:");
-            PrintList(listTwo);
-
-            Console.WriteLine("Шаг 6. Очистим первый спсиок.");
-            _ = Console.ReadKey();
-
-            Console.WriteLine("Палпатин: \"Власть ситхов вновь " +
-                "воцарится над галлактикой. И везде снова настанет " +
-                "мир. Вот время и настало. Выполнить приказ 66!\"");
-            _ = Console.ReadKey();
-
-            listTwo.ClearPerson();
-
-            Console.WriteLine("\nОрден джедаев:");
-            PrintList(listTwo);
-
-            Console.WriteLine("Орден Джедаев уничтожен!");
-
-            Console.WriteLine("Настало время новой надежды, " +
-                "которую создашь именно ты!");
-            _ = Console.ReadKey();
-
-            var inputPerson = InputPersonByConsole();
-            Console.WriteLine(inputPerson.GetInfo());
+                default:
+                    break;
+            }
         }
 
         /// <summary>
@@ -197,7 +143,7 @@ namespace ConsoleApp
 
                 (new Action(() =>
                 {
-                    Console.Write($"Твой возраст: ");
+                    Console.Write($"Товарищь, возраст: ");
                     _ = int.TryParse(Console.ReadLine(), out int tmpAge);
                     person.Age = tmpAge;
                 }), "возраст"),
@@ -264,8 +210,9 @@ namespace ConsoleApp
                                 newpersonAdult.StatusAdualt =
                                 MaritalStatus.Married;
 
-                                Console.WriteLine("Каждой твари по паре!");
-                                _ = Console.ReadKey();
+                                Console.WriteLine("Так точно! " +
+                                    "Вторую половинку мы сами найдем " +
+                                    "тебе, товарищь!");
 
                                 var randomPersonGender =
                                 newpersonAdult.Gender == Gender.Male
@@ -273,7 +220,7 @@ namespace ConsoleApp
                                     : Gender.Male;
 
                                 newpersonAdult.Partner =
-                                RandomPerson.GetRandomAdult
+                                GeneratorRandomPersons.GetRandomAdult
                                 (MaritalStatus.Married,
                                 newpersonAdult, randomPersonGender);
 
@@ -294,7 +241,7 @@ namespace ConsoleApp
                                     "Просто создавай семью.");
                             }
                     }
-                }), "maritalstatus")
+                }), "Семейный статус")
             };
 
             // Действия для ребенка.
@@ -305,13 +252,13 @@ namespace ConsoleApp
                     Child newpersonChild = (Child)person;
                     newpersonChild.Mother = CheckParents(newpersonChild, "о матери", Gender.Female);
 
-                }), "Мама"),
+                }), "информационный запрос о наличии мамы"),
                 (new Action(() =>
                 {
                     Child newpersonChild = (Child)person;
                     newpersonChild.Father = CheckParents(newpersonChild, "об отце", Gender.Male);
 
-                }), "Отец"),
+                }), "информационный запрос о наличии папы"),
                 (new Action(() =>
                 {
                     Child newpersonChild = (Child)person;
@@ -349,9 +296,39 @@ namespace ConsoleApp
 
             };
 
+            // Выбор взрослого или ребёнка
+            ActionHandler(actionStart, "Взрослый или ребенок");
+
             foreach (var action in actionList)
             {
                 ActionHandler(action.Item1, action.Item2);
+            }
+
+            // Заполнение взрослого или ребёнка
+            switch (person)
+            {
+                case Adult:
+                    {
+                        foreach (var action in actionlistAdult)
+                        {
+                            ActionHandler(action.Item1, action.Item2);
+                        }
+
+                        break;
+                    }
+
+                case Child:
+                    {
+                        foreach (var action in actionlistChild)
+                        {
+                            ActionHandler(action.Item1, action.Item2);
+                        }
+
+                        break;
+                    }
+
+                default:
+                    break;
             }
 
             return person;
@@ -406,9 +383,9 @@ namespace ConsoleApp
                 case 1:
                     {
                         return gender == Gender.Male
-                            ? RandomPerson.GetRandomAdult
+                            ? GeneratorRandomPersons.GetRandomAdult
                         (MaritalStatus.Married, newChild.Mother, gender)
-                            : RandomPerson.GetRandomAdult
+                            : GeneratorRandomPersons.GetRandomAdult
                         (MaritalStatus.Married, newChild.Father, gender);
                     }
 
