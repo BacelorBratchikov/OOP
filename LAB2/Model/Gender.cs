@@ -13,6 +13,11 @@ namespace Model
         /// <summary>
         /// Девочка.
         /// </summary>
-        Female
+        Female,
+
+        /// <summary>
+        /// Что сказать, товй пол - божественный рандом).
+        /// </summary>
+        Default
     }
 }
