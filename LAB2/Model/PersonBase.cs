@@ -50,6 +50,7 @@ namespace Model
 
             set
             {
+                //TODO: 
                 _name = EditRegister(value);
                 CheckString(value, nameof(_name));
                 _ = CheckLanguage(_name);
@@ -68,6 +69,7 @@ namespace Model
 
             set
             {
+                //TODO: 
                 _surname = EditRegister(value);
                 CheckString(value, nameof(_surname));
                 CheckNameAndSurname();
@@ -175,6 +177,7 @@ namespace Model
             return Language.Basurman;
         }
 
+        //TODO: временная зависимость между присваиванием имени и фамилии
         /// <summary>
         /// Проверяет имя и фамилию на язык.
         /// </summary>

@@ -15,16 +15,19 @@ namespace Model
         /// </summary>
         public override int MaxAge => 17;
 
+        //TODO: nullable type?
         /// <summary>
         /// Колония по пробыванию мозгов.
         /// </summary>
         private string? _institution;
 
+        //TODO: nullable type?
         /// <summary>
         /// Gets or sets задание матери.
         /// </summary>
-        public Adult? Mother { get; set; }
+        public Adult Mother { get; set; }
 
+        //TODO: nullable type?
         /// <summary>
         /// Gets or sets задание отца.
         /// </summary>
