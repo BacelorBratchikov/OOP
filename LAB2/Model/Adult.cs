@@ -43,7 +43,7 @@ namespace Model
         /// <summary>
         /// Gets or sets задание работы.
         /// </summary>
-        public string? Job { get; set; }
+        public string Job { get; set; }
 
         /// <summary>
         /// Gets or sets задание паспорта.

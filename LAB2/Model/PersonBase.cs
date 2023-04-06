@@ -50,10 +50,13 @@ namespace Model
 
             set
             {
-                //TODO: 
-                _name = EditRegister(value);
                 CheckString(value, nameof(_name));
-                _ = CheckLanguage(_name);
+                _ = CheckLanguage(EditRegister(value));
+
+                if (_surname != null)
+                {
+                    CheckNameAndSurname();
+                }
             }
         }
 
@@ -69,10 +72,13 @@ namespace Model
 
             set
             {
-                //TODO: 
-                _surname = EditRegister(value);
                 CheckString(value, nameof(_surname));
-                CheckNameAndSurname();
+                _ = CheckLanguage(EditRegister(value));
+
+                if (_name != null)
+                {
+                    CheckNameAndSurname();
+                }
             }
         }
 
@@ -177,7 +183,7 @@ namespace Model
             return Language.Basurman;
         }
 
-        //TODO: временная зависимость между присваиванием имени и фамилии
+        //TODO:(+) временная зависимость между присваиванием имени и фамилии
         /// <summary>
         /// Проверяет имя и фамилию на язык.
         /// </summary>

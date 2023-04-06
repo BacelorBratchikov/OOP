@@ -60,6 +60,11 @@ namespace ConsoleApp
                 default:
                     break;
             }
+
+            PersonBase newperson = InputPersonByConsole();
+
+            Console.WriteLine("\nНоый челоечек: ");
+            Console.WriteLine(newperson.GetInfo());
         }
 
         /// <summary>
@@ -104,6 +109,7 @@ namespace ConsoleApp
                                   $" если ребёнка: 2\tВвод:");
 
                 int whoIsThis = int.Parse(Console.ReadLine());
+
 
                 switch (whoIsThis)
                 {
