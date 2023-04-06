@@ -183,7 +183,6 @@ namespace Model
             return Language.Basurman;
         }
 
-        //TODO:(+) временная зависимость между присваиванием имени и фамилии
         /// <summary>
         /// Проверяет имя и фамилию на язык.
         /// </summary>
