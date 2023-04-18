@@ -14,7 +14,7 @@ namespace Model.Exercises
         public TypesOfSwimming SwimmingType{ get; set; }
 
         /// <summary>
-        /// Сжигаемые калории при плаании.
+        /// Сжигаемые калории при плавании.
         /// </summary>
         /// <returns>Потраченные калории.</returns>
         /// <exception cref="NotImplementedException">Ошибка.</exception>
