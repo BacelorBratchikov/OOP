@@ -14,7 +14,7 @@ namespace ConsoleLab3
         /// <param name="number">Число.</param>
         /// <returns>Обработанное число.</returns>
         /// <exception cref="ArgumentException">Ошибка.</exception>
-        private static double CheckNumber(string number)
+        private static double CheckNumberDouuble(string number)
         {
             if (number.Contains('.'))
             {
@@ -27,6 +27,25 @@ namespace ConsoleLab3
             if (!isParsed)
             {
                 throw new ArgumentException("Введите число!");
+            }
+
+            return checkNumber;
+        }
+
+        /// <summary>
+        /// Метод проверки ввода целого числа.
+        /// </summary>
+        /// <param name="number">Число.</param>
+        /// <returns>Обработанное число.</returns>
+        /// <exception cref="ArgumentException">Ошибка.</exception>
+        private static int CheckNumberInt(string number)
+        {
+            bool isParsed = int.TryParse(number,
+                        out int checkNumber);
+
+            if (!isParsed)
+            {
+                throw new ArgumentException("Введите целое число!");
             }
 
             return checkNumber;
@@ -83,14 +102,14 @@ namespace ConsoleLab3
                 {
                     Console.Write("Введите преодаленную дистанцию в км: ");
                     Running running = (Running)exercise;
-                    running.Distance = CheckNumber(Console.ReadLine());
+                    running.Distance = CheckNumberDouuble(Console.ReadLine());
 
                 }), "преодаленная дистанция"),
                 (new Action(() =>
                 {
                     Console.Write($"Введите скорость бега в км/ч: ");
                     Running running = (Running)exercise;
-                    running.Speed = CheckNumber(Console.ReadLine());
+                    running.Speed = CheckNumberDouuble(Console.ReadLine());
                 }), "скорость бега"),
                 (new Action(() =>
                 {
@@ -107,7 +126,7 @@ namespace ConsoleLab3
                 {
                     Console.Write("Введите преодаленную дистанцию в км: ");
                     Swimming swimming = (Swimming)exercise;
-                    swimming.Distance = CheckNumber(Console.ReadLine());
+                    swimming.Distance = CheckNumberDouuble(Console.ReadLine());
 
                 }), "преодаленная дистанция"),
                 (new Action(() =>
@@ -161,15 +180,13 @@ namespace ConsoleLab3
                 {
                     Console.Write("Введите количество повторений: ");
                     BarbellPress barbellPress = (BarbellPress)exercise;
-                    _ = int.TryParse(Console.ReadLine(),
-                        out int tmpBarbellPress);
-                    barbellPress.Repetitions = tmpBarbellPress;
+                    barbellPress.Repetitions = CheckNumberInt(Console.ReadLine());
                 }), "количество повторений"),
                 (new Action(() =>
                 {
                     Console.Write($"Поднимаемый вес в кг: ");
                     BarbellPress barbellPress = (BarbellPress)exercise;
-                    barbellPress.Weight = CheckNumber(Console.ReadLine());
+                    barbellPress.Weight = CheckNumberDouuble(Console.ReadLine());
                 }), "поднимаемый вес"),
                 (new Action(() =>
                 {
@@ -212,7 +229,7 @@ namespace ConsoleLab3
                     action.Invoke();
                     return;
                 }
-                catch (ArgumentException exception)
+                catch (Exception exception)
                 {
                     if (exception.GetType()
                         == typeof(IndexOutOfRangeException)
