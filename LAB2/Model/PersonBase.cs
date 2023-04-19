@@ -51,12 +51,15 @@ namespace Model
             set
             {
                 CheckString(value, nameof(_name));
-                _ = CheckLanguage(EditRegister(value));
+                _ = CheckLanguage(value);
+                string tmpName = EditRegister(value);
 
                 if (_surname != null)
                 {
-                    CheckNameAndSurname();
+                    CheckNameAndSurname(tmpName, _surname);
                 }
+
+                _name = tmpName;
             }
         }
 
@@ -73,12 +76,15 @@ namespace Model
             set
             {
                 CheckString(value, nameof(_surname));
-                _ = CheckLanguage(EditRegister(value));
+                _ = CheckLanguage(value);
+                string tmpSurname = EditRegister(value);
 
                 if (_name != null)
                 {
-                    CheckNameAndSurname();
+                    CheckNameAndSurname(_name, tmpSurname);
                 }
+
+                _surname = tmpSurname;
             }
         }
 
@@ -186,11 +192,13 @@ namespace Model
         /// <summary>
         /// Проверяет имя и фамилию на язык.
         /// </summary>
+        /// <param name="name">Имя.</param>
+        /// <param name="surname">Фамилия.</param>
         /// <exception cref="FormatException">Один язык.</exception>
-        private void CheckNameAndSurname()
+        private void CheckNameAndSurname(string name, string surname)
         {
-            var nameLanguage = CheckLanguage(Name);
-            var surnameLanguage = CheckLanguage(Surname);
+            var nameLanguage = CheckLanguage(name);
+            var surnameLanguage = CheckLanguage(surname);
 
             if (nameLanguage != surnameLanguage)
             {
