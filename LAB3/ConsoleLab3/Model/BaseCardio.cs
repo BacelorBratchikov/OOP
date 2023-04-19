@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
-
 namespace Model
 {
-    public abstract class BaseCardio
+    /// <summary>
+    /// Базовый класс для кардио упражнений.
+    /// </summary>
+    public class BaseCardio : BaseWorkout
     {
         /// <summary>
         /// Расстояние.
@@ -15,9 +11,9 @@ namespace Model
         private double _distance;
 
         /// <summary>
-        /// Расстояние преодаленное.
+        /// Gets or sets расстояние преодаленное.
         /// </summary>
-        protected double Distance
+        public double Distance
         {
             get
             {
@@ -38,7 +34,7 @@ namespace Model
         /// <exception cref="ArgumentException">Ловится ошибка.</exception>
         private double CheckDistance(double value)
         {
-            if (value < 0) 
+            if (value < 0)
             {
                 throw new ArgumentException($"{value} не может быть " +
                     $"отрицательным! Кардио нагрузки не имеют вектора.");

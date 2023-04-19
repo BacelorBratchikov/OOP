@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Model.Exercises
 {
-    internal class Swimming : BaseCardio, IСaloriesable
+    /// <summary>
+    /// Плавание.
+    /// </summary>
+    public class Swimming : BaseCardio, IСaloriesable
     {
         /// <summary>
         /// Gets or sets стиль плавания.
         /// </summary>
-        public TypesOfSwimming SwimmingType{ get; set; }
+        public TypesOfSwimming SwimmingType { get; set; }
 
         /// <summary>
         /// Сжигаемые калории при плавании.
@@ -40,7 +37,7 @@ namespace Model.Exercises
                         ("Зарегистрируйте новый стиль плавания" +
                         " в ассоциации спорта");
                     }
-            }    
+            }
         }
     }
 }

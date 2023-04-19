@@ -1,23 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
-
 namespace Model.Exercises
 {
+    /// <summary>
+    /// Бег.
+    /// </summary>
     public class Running : BaseCardio, IСaloriesable
     {
         /// <summary>
         /// Минимальная скорость бега в км/ч.
         /// </summary>
-        private static double MinSpeed = 0;
+        private const double _minSpeed = 0;
 
         /// <summary>
         /// Максимальная скорость бега человека в км/ч.
         /// </summary>
-        private static double MaxSpeed = 44;
+        private const double _maxSpeed = 44;
 
         /// <summary>
         /// Скорость.
@@ -25,9 +21,9 @@ namespace Model.Exercises
         private double _speed;
 
         /// <summary>
-        /// Скорость бега.
+        /// Gets or sets скорость бега.
         /// </summary>
-        private double Speed
+        public double Speed
         {
             get
             {
@@ -48,10 +44,10 @@ namespace Model.Exercises
         /// <exception cref="ArgumentException">Ловится ошибка.</exception>
         private double CheckSpeed(double value)
         {
-            if (value < MinSpeed || value > MaxSpeed)
+            if (value < _minSpeed || value > _maxSpeed)
             {
                 throw new ArgumentException($"{value} не должен быть " +
-                    $"меньше {MinSpeed} и больше {MaxSpeed}!");
+                    $"меньше {_minSpeed} и больше {_maxSpeed}!");
             }
             else
             {

@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Model.Exercises
 {
-    public class BarbellPress : IСaloriesable
+    /// <summary>
+    /// Жим штанги.
+    /// </summary>
+    public class BarbellPress : BaseWorkout, IСaloriesable
     {
         /// <summary>
         /// Количество повторений.
@@ -14,9 +11,9 @@ namespace Model.Exercises
         private int _repetitions;
 
         /// <summary>
-        /// Количество повторений.
+        /// Gets or sets количество повторений.
         /// </summary>
-        protected int Repetitions
+        public int Repetitions
         {
             get
             {
@@ -32,22 +29,22 @@ namespace Model.Exercises
         /// <summary>
         /// Минимальный вес штанги в кг.
         /// </summary>
-        private static double MinWeight = 6;
+        private const double _minWeight = 6;
 
         /// <summary>
         /// Максимальный вес снаряда в кг.
         /// </summary>
-        private static double MaxWeight = 460;
+        private const double _maxWeight = 460;
 
         /// <summary>
-        /// Скорость.
+        /// Вес.
         /// </summary>
         private double _weight;
 
         /// <summary>
-        /// Скорость бега.
+        /// Gets or sets поднимаемый вес.
         /// </summary>
-        private double Weight
+        public double Weight
         {
             get
             {
@@ -87,10 +84,10 @@ namespace Model.Exercises
         /// <exception cref="ArgumentException">Ловится ошибка.</exception>
         private double CheckWeight(double value)
         {
-            if (value < MinWeight || value > MaxWeight)
+            if (value < _minWeight || value > _maxWeight)
             {
                 throw new ArgumentException($"{value} не должен быть " +
-                    $"меньше {MinWeight} и больше {MaxWeight}!");
+                    $"меньше {_minWeight} и больше {_maxWeight}!");
             }
             else
             {
@@ -98,14 +95,13 @@ namespace Model.Exercises
             }
         }
 
-
         /// <summary>
         /// Вычисление расхода калориев при беге.
         /// </summary>
         /// <returns>Потраченные калории.</returns>
         public double CalculationCalories()
         {
-            return Weight * Repetitions/3; 
+            return Weight * Repetitions / 3;
         }
     }
 }
