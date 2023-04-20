@@ -50,8 +50,8 @@ namespace Model
 
             set
             {
-                //TODO: duplication
-                _name = CheckAllParametrsForNameAndSurname(_surname, value);
+                //TODO(+): duplication
+                _name = CheckAllParametrsForNameAndSurname(_surname, value, "Name");
             }
         }
 
@@ -67,8 +67,8 @@ namespace Model
 
             set
             {
-                //TODO: duplication
-                _surname = CheckAllParametrsForNameAndSurname(_name, value);
+                //TODO(+): duplication
+                _surname = CheckAllParametrsForNameAndSurname(_name, value, "Surname");
             }
         }
 
@@ -78,11 +78,13 @@ namespace Model
         /// </summary>
         /// <param name="checkParametr">Проверочный параметр.</param>
         /// <param name="value">Передаваемое значение.</param>
+        /// <param name="nameParametr">Имя параметра.</param>
         /// <returns>Возвращение проверенной строки.</returns>
+        /// <summary>
         private string CheckAllParametrsForNameAndSurname(
-            string checkParametr, string value)
+            string checkParametr, string value, string nameParametr)
         {
-            CheckString(value, nameof(value));
+            CheckString(value, nameParametr);
             _ = CheckLanguage(value);
             string tmpParametr = EditRegister(value);
 

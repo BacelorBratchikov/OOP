@@ -379,21 +379,15 @@ namespace ConsoleApp
             }
         }
 
+        /// TODO(+): xml
         /// <summary>
-        /// Метод ввода родителей.
+        /// Метод создания родителей или их отсутствия.
         /// </summary>
-        /// <param name="newChild">Ребеночек.</param>
+        /// <param name="newChild">Новый ребенок.</param>
         /// <param name="parent">Родители.</param>
+        /// <param name="gender">Пол родителя.</param>
+        /// <returns>Родителя или его отсутсие.</returns>
         /// <exception cref="ArgumentException">Ошибка.</exception>
-        /// TODO: xml
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="newChild"></param>
-        /// <param name="parent"></param>
-        /// <param name="gender"></param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentException"></exception>
         private static Adult? CheckParents(Child newChild,
             string parent, Gender gender)
         {
