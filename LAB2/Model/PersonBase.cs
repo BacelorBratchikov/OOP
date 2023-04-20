@@ -50,7 +50,7 @@ namespace Model
 
             set
             {
-                //TODO(+): duplication
+                //TODO: duplication
                 _name = CheckAllParametrsForNameAndSurname(_surname, value);
             }
         }
@@ -67,7 +67,7 @@ namespace Model
 
             set
             {
-                //TODO(+): duplication
+                //TODO: duplication
                 _surname = CheckAllParametrsForNameAndSurname(_name, value);
             }
         }

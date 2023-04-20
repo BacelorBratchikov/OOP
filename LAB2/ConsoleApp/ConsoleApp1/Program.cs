@@ -125,7 +125,6 @@ namespace ConsoleApp
 
                     default:
                         {
-                            //TODO(+): RSDN
                             throw new ArgumentException(
                                 "Введите для взрослого - 1, " +
                                 "для ребёнка - 2: ");
@@ -256,7 +255,6 @@ namespace ConsoleApp
                 (new Action(() =>
                 {
                     Child newpersonChild = (Child)person;
-                    //TODO(+): RSDN
                     newpersonChild.Mother = CheckParents(
                         newpersonChild, "о матери", Gender.Female);
 
@@ -264,7 +262,6 @@ namespace ConsoleApp
                 (new Action(() =>
                 {
                     Child newpersonChild = (Child)person;
-                    //TODO(+): RSDN
                     newpersonChild.Father = CheckParents(
                         newpersonChild, "об отце", Gender.Male);
 
@@ -282,7 +279,6 @@ namespace ConsoleApp
                                 {
                                     Console.Write("Введите наименование" +
                                         " детского сада: ");
-                                    //TODO(+): RSDN
                                     newpersonChild.Institution =
                                     "Детский сад \""
                                     + Console.ReadLine() + "\"";
@@ -291,7 +287,6 @@ namespace ConsoleApp
                                 {
                                     Console.Write("Введите наименование" +
                                         " школы: ");
-                                    //TODO(+): RSDN
                                     newpersonChild.Institution =
                                     "Школа \"" + Console.ReadLine() + "\"";
                                 }
@@ -390,6 +385,15 @@ namespace ConsoleApp
         /// <param name="newChild">Ребеночек.</param>
         /// <param name="parent">Родители.</param>
         /// <exception cref="ArgumentException">Ошибка.</exception>
+        /// TODO: xml
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="newChild"></param>
+        /// <param name="parent"></param>
+        /// <param name="gender"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
         private static Adult? CheckParents(Child newChild,
             string parent, Gender gender)
         {
