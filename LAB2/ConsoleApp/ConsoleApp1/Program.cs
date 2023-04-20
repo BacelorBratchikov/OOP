@@ -29,7 +29,6 @@ namespace ConsoleApp
                     (GeneratorRandomPersons.GetRandomAnyPerson());
             }
 
-            // Печать исходного списка
             Console.WriteLine("Список людей:");
             PrintList(personlist);
 
@@ -110,7 +109,6 @@ namespace ConsoleApp
 
                 int whoIsThis = int.Parse(Console.ReadLine());
 
-
                 switch (whoIsThis)
                 {
                     case 1:
@@ -127,8 +125,10 @@ namespace ConsoleApp
 
                     default:
                         {
-                            //TODO: RSDN
-                            throw new ArgumentException("Введите для взрослого - 1, для ребёнка - 2: ");
+                            //TODO(+): RSDN
+                            throw new ArgumentException(
+                                "Введите для взрослого - 1, " +
+                                "для ребёнка - 2: ");
                         }
                 }
             });
@@ -251,42 +251,49 @@ namespace ConsoleApp
                 }), "Семейный статус")
             };
 
-            // Действия для ребенка.
             var actionlistChild = new List<(Action, string)>
             {
                 (new Action(() =>
                 {
                     Child newpersonChild = (Child)person;
-                    //TODO: RSDN
-                    newpersonChild.Mother = CheckParents(newpersonChild, "о матери", Gender.Female);
+                    //TODO(+): RSDN
+                    newpersonChild.Mother = CheckParents(
+                        newpersonChild, "о матери", Gender.Female);
 
                 }), "информационный запрос о наличии мамы"),
                 (new Action(() =>
                 {
                     Child newpersonChild = (Child)person;
-                    //TODO: RSDN
-                    newpersonChild.Father = CheckParents(newpersonChild, "об отце", Gender.Male);
+                    //TODO(+): RSDN
+                    newpersonChild.Father = CheckParents(
+                        newpersonChild, "об отце", Gender.Male);
 
                 }), "информационный запрос о наличии папы"),
                 (new Action(() =>
                 {
                     Child newpersonChild = (Child)person;
-                    Console.Write($"Ребёнок институализируется? (1 - да, 0 - нет)");
+                    Console.Write($"Ребёнок институализируется? " +
+                        $"(1 - да, 0 - нет)");
                     switch (ushort.Parse(Console.ReadLine()))
                     {
                         case 1:
                             {
                                 if (newpersonChild.Age < 7)
                                 {
-                                    Console.Write("Введите наименование детского сада: ");
-                                    //TODO: RSDN
-                                    newpersonChild.Institution = "Детский сад \"" + Console.ReadLine() + "\"";
+                                    Console.Write("Введите наименование" +
+                                        " детского сада: ");
+                                    //TODO(+): RSDN
+                                    newpersonChild.Institution =
+                                    "Детский сад \""
+                                    + Console.ReadLine() + "\"";
                                 }
                                 else
                                 {
-                                    Console.Write("Введите наименование школы: ");
-                                    //TODO: RSDN
-                                    newpersonChild.Institution = "Школа \"" + Console.ReadLine() + "\"";
+                                    Console.Write("Введите наименование" +
+                                        " школы: ");
+                                    //TODO(+): RSDN
+                                    newpersonChild.Institution =
+                                    "Школа \"" + Console.ReadLine() + "\"";
                                 }
 
                                 break;
@@ -383,10 +390,12 @@ namespace ConsoleApp
         /// <param name="newChild">Ребеночек.</param>
         /// <param name="parent">Родители.</param>
         /// <exception cref="ArgumentException">Ошибка.</exception>
-        private static Adult? CheckParents(Child newChild, string parent, Gender gender)
+        private static Adult? CheckParents(Child newChild,
+            string parent, Gender gender)
         {
             Console.Write($"У ребёнка есть информация {parent}?" +
-                        " (1 - есть (будет поднята из архива), 0 - нет информации):");
+                        " (1 - есть (будет поднята из архива), " +
+                        "0 - нет информации):");
             ushort haveOrNot = ushort.Parse(Console.ReadLine());
             switch (haveOrNot)
             {
@@ -394,9 +403,11 @@ namespace ConsoleApp
                     {
                         return gender == Gender.Male
                             ? GeneratorRandomPersons.GetRandomAdult
-                                (MaritalStatus.Married, newChild.Mother, gender)
+                                (MaritalStatus.Married,
+                                newChild.Mother, gender)
                             : GeneratorRandomPersons.GetRandomAdult
-                                (MaritalStatus.Married, newChild.Father, gender);
+                                (MaritalStatus.Married,
+                                newChild.Father, gender);
                     }
 
                 case 0:

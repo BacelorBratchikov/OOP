@@ -50,17 +50,8 @@ namespace Model
 
             set
             {
-                //TODO: duplication
-                CheckString(value, nameof(_name));
-                _ = CheckLanguage(value);
-                string tmpName = EditRegister(value);
-
-                if (_surname != null)
-                {
-                    CheckNameAndSurname(tmpName, _surname);
-                }
-
-                _name = tmpName;
+                //TODO(+): duplication
+                _name = CheckAllParametrsForNameAndSurname(_surname, value);
             }
         }
 
@@ -76,18 +67,30 @@ namespace Model
 
             set
             {
-                //TODO: duplication
-                CheckString(value, nameof(_surname));
-                _ = CheckLanguage(value);
-                string tmpSurname = EditRegister(value);
-
-                if (_name != null)
-                {
-                    CheckNameAndSurname(_name, tmpSurname);
-                }
-
-                _surname = tmpSurname;
+                //TODO(+): duplication
+                _surname = CheckAllParametrsForNameAndSurname(_name, value);
             }
+        }
+
+        /// <summary>
+        /// В методе содержатся все проверки для правильного имени и фамилии,
+        /// в результате которого возвращается проверенная строка.
+        /// </summary>
+        /// <param name="checkParametr">Проверочный параметр.</param>
+        /// <param name="value">Передаваемое значение.</param>
+        /// <returns>Возвращение проверенной строки.</returns>
+        private string CheckAllParametrsForNameAndSurname(string checkParametr, string value)
+        {
+            CheckString(value, nameof(value));
+            _ = CheckLanguage(value);
+            string tmpParametr = EditRegister(value);
+
+            if (checkParametr != null)
+            {
+                CheckNameAndSurname(tmpParametr, checkParametr);
+            }
+
+            return tmpParametr;
         }
 
         /// <summary>
@@ -146,6 +149,7 @@ namespace Model
         /// </summary>
         public PersonBase()
         { }
+
 
         /// <summary>
         /// Метод проверяющий заполнение имени и фамилии.
