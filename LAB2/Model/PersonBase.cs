@@ -79,7 +79,8 @@ namespace Model
         /// <param name="checkParametr">Проверочный параметр.</param>
         /// <param name="value">Передаваемое значение.</param>
         /// <returns>Возвращение проверенной строки.</returns>
-        private string CheckAllParametrsForNameAndSurname(string checkParametr, string value)
+        private string CheckAllParametrsForNameAndSurname(
+            string checkParametr, string value)
         {
             CheckString(value, nameof(value));
             _ = CheckLanguage(value);

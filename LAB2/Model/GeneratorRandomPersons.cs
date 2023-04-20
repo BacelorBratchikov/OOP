@@ -149,17 +149,12 @@ namespace Model
 
             if (maritalstatus == MaritalStatus.Married && partner == null)
             {
-                //TODO: refactor
-                if (randomAdult.Gender == Gender.Male)
-                {
-                    randomAdult.Partner = GetRandomAdult(
-                        MaritalStatus.Married, randomAdult, Gender.Female);
-                }
-                else
-                {
-                    randomAdult.Partner = GetRandomAdult(
+                //TODO(+): refactor
+                randomAdult.Partner = randomAdult.Gender == Gender.Male
+                    ? GetRandomAdult(
+                        MaritalStatus.Married, randomAdult, Gender.Female)
+                    : GetRandomAdult(
                         MaritalStatus.Married, randomAdult, Gender.Male);
-                }
             }
             else
             {
