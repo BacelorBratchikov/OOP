@@ -127,6 +127,7 @@ namespace ConsoleApp
 
                     default:
                         {
+                            //TODO: RSDN
                             throw new ArgumentException("Введите для взрослого - 1, для ребёнка - 2: ");
                         }
                 }
@@ -256,12 +257,14 @@ namespace ConsoleApp
                 (new Action(() =>
                 {
                     Child newpersonChild = (Child)person;
+                    //TODO: RSDN
                     newpersonChild.Mother = CheckParents(newpersonChild, "о матери", Gender.Female);
 
                 }), "информационный запрос о наличии мамы"),
                 (new Action(() =>
                 {
                     Child newpersonChild = (Child)person;
+                    //TODO: RSDN
                     newpersonChild.Father = CheckParents(newpersonChild, "об отце", Gender.Male);
 
                 }), "информационный запрос о наличии папы"),
@@ -276,11 +279,13 @@ namespace ConsoleApp
                                 if (newpersonChild.Age < 7)
                                 {
                                     Console.Write("Введите наименование детского сада: ");
+                                    //TODO: RSDN
                                     newpersonChild.Institution = "Детский сад \"" + Console.ReadLine() + "\"";
                                 }
                                 else
                                 {
                                     Console.Write("Введите наименование школы: ");
+                                    //TODO: RSDN
                                     newpersonChild.Institution = "Школа \"" + Console.ReadLine() + "\"";
                                 }
 
@@ -356,14 +361,13 @@ namespace ConsoleApp
                 }
                 catch (Exception exception)
                 {
-                    if (exception.GetType()
-                        == typeof(IndexOutOfRangeException)
+                    if (exception.GetType() == typeof(IndexOutOfRangeException)
                         || exception.GetType() == typeof(FormatException)
                         || exception.GetType() == typeof(ArgumentException))
                     {
                         Console.WriteLine($"Некорректный введен(о) " +
-                        $"{propertyName}. Ошибка: {exception.Message}" +
-                        $" Пробуй ввести {propertyName} еще раз.");
+                            $"{propertyName}. Ошибка: {exception.Message}" +
+                            $" Пробуй ввести {propertyName} еще раз.");
                     }
                     else
                     {
@@ -390,9 +394,9 @@ namespace ConsoleApp
                     {
                         return gender == Gender.Male
                             ? GeneratorRandomPersons.GetRandomAdult
-                        (MaritalStatus.Married, newChild.Mother, gender)
+                                (MaritalStatus.Married, newChild.Mother, gender)
                             : GeneratorRandomPersons.GetRandomAdult
-                        (MaritalStatus.Married, newChild.Father, gender);
+                                (MaritalStatus.Married, newChild.Father, gender);
                     }
 
                 case 0:

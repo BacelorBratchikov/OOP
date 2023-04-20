@@ -50,6 +50,7 @@ namespace Model
 
             set
             {
+                //TODO: duplication
                 CheckString(value, nameof(_name));
                 _ = CheckLanguage(value);
                 string tmpName = EditRegister(value);
@@ -75,6 +76,7 @@ namespace Model
 
             set
             {
+                //TODO: duplication
                 CheckString(value, nameof(_surname));
                 _ = CheckLanguage(value);
                 string tmpSurname = EditRegister(value);
