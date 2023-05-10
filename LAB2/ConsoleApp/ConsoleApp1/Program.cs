@@ -379,7 +379,6 @@ namespace ConsoleApp
             }
         }
 
-        /// TODO(+): xml
         /// <summary>
         /// Метод создания родителей или их отсутствия.
         /// </summary>

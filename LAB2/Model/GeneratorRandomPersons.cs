@@ -149,7 +149,6 @@ namespace Model
 
             if (maritalstatus == MaritalStatus.Married && partner == null)
             {
-                //TODO(+): refactor
                 Gender tempGender = randomAdult.Gender == Gender.Male
                         ? Gender.Female : Gender.Male;
 
