@@ -19,6 +19,7 @@ namespace Model.Exercises
         {
             switch (SwimmingType)
             {
+                //TODO: сделать соответствие элемента перечеисления и коэффициента
                 case TypesOfSwimming.Breaststroke:
                     return Distance * 183;
 

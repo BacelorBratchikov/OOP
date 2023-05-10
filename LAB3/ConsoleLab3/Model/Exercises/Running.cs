@@ -61,6 +61,7 @@ namespace Model.Exercises
         /// <returns>Потраченные калории.</returns>
         public double CalculationCalories()
         {
+            //TODO: коэффициенты в константы
             return Distance * (14 - 0.25 * Speed) * Speed;
         }
     }

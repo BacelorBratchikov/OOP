@@ -95,6 +95,7 @@ namespace Model.Exercises
             }
         }
 
+        //TODO: проверить комментарии
         /// <summary>
         /// Вычисление расхода калориев при беге.
         /// </summary>
