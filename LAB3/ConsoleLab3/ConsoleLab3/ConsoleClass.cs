@@ -57,7 +57,7 @@ namespace ConsoleLab3
         /// <exception cref="ArgumentException">Ошибка.</exception>
         public static void AddWorkout()
         {
-            IСaloriesable exercise = new Running();
+            BaseWorkout exercise = new Running();
 
             Action actionStart = new Action(() =>
             {
@@ -101,7 +101,7 @@ namespace ConsoleLab3
                 (new Action(() =>
                 {
                     Console.Write("Введите преодаленную дистанцию в км: ");
-                    Running running = (Running)exercise;
+                    Running running = new Running();
                     running.Distance = CheckNumberDouuble(Console.ReadLine());
 
                 }), "преодаленная дистанция"),
