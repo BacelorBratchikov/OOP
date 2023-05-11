@@ -3,7 +3,7 @@ namespace Model
     /// <summary>
     /// Базовый класс для кардио упражнений.
     /// </summary>
-    public class BaseCardio : BaseWorkout
+    public class BaseCardio
     {
         /// <summary>
         /// Расстояние.

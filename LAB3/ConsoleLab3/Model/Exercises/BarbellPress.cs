@@ -3,7 +3,7 @@ namespace Model.Exercises
     /// <summary>
     /// Жим штанги.
     /// </summary>
-    public class BarbellPress : BaseWorkout, IСaloriesable
+    public class BarbellPress : IСaloriesable
     {
         /// <summary>
         /// Количество повторений.
@@ -95,9 +95,10 @@ namespace Model.Exercises
             }
         }
 
-        //TODO: проверить комментарии
+        // TODO(+): проверить комментарии
+
         /// <summary>
-        /// Вычисление расхода калориев при беге.
+        /// Вычисление расхода калориев при жиме штанги.
         /// </summary>
         /// <returns>Потраченные калории.</returns>
         public double CalculationCalories()

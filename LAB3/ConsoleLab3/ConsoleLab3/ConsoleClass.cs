@@ -62,9 +62,10 @@ namespace ConsoleLab3
             Action actionStart = new Action(() =>
             {
 
-                Console.Write($"1 - бег,\n" +
+                Console.Write($"Типы упражнений:\n" +
+                    $"1 - бег,\n" +
                     $"2 - плавание,\n3 - жим лежа." +
-                    $"\nРасчёт сожженых калорий:");
+                    $"\nКаким упражнением ты занимался? Введи число:");
 
                 bool _ = int.TryParse(Console.ReadLine(), out int workout);
 

@@ -11,6 +11,19 @@ namespace Model.Exercises
         public TypesOfSwimming SwimmingType { get; set; }
 
         /// <summary>
+        /// Словарь, в котором ключ - тип плавания, а значение - его
+        /// калорийные затраты.
+        /// </summary>
+        private static Dictionary<TypesOfSwimming, int>
+            _dictCalorieBySwimmingType = new Dictionary<TypesOfSwimming, int>()
+            {
+                [TypesOfSwimming.Breaststroke] = 183,
+                [TypesOfSwimming.Crawl] = 293,
+                [TypesOfSwimming.Butterfly] = 358,
+                [TypesOfSwimming.OnTheBack] = 163
+            };
+
+        /// <summary>
         /// Сжигаемые калории при плавании.
         /// </summary>
         /// <returns>Потраченные калории.</returns>
@@ -19,18 +32,22 @@ namespace Model.Exercises
         {
             switch (SwimmingType)
             {
-                //TODO: сделать соответствие элемента перечеисления и коэффициента
+                // TODO(+): сделать соответствие элемента перечеисления и коэффициента
                 case TypesOfSwimming.Breaststroke:
-                    return Distance * 183;
+                    return Distance * _dictCalorieBySwimmingType
+                        [TypesOfSwimming.Breaststroke];
 
                 case TypesOfSwimming.Crawl:
-                    return Distance * 293;
+                    return Distance * _dictCalorieBySwimmingType
+                        [TypesOfSwimming.Crawl];
 
                 case TypesOfSwimming.Butterfly:
-                    return Distance * 358;
+                    return Distance * _dictCalorieBySwimmingType
+                        [TypesOfSwimming.Butterfly];
 
                 case TypesOfSwimming.OnTheBack:
-                    return Distance * 163;
+                    return Distance * _dictCalorieBySwimmingType
+                        [TypesOfSwimming.OnTheBack];
 
                 default:
                     {

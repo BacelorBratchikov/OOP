@@ -151,7 +151,6 @@ namespace Model
         public PersonBase()
         { }
 
-
         /// <summary>
         /// Метод проверяющий заполнение имени и фамилии.
         /// </summary>

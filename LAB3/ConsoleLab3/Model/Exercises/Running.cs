@@ -21,6 +21,18 @@ namespace Model.Exercises
         private double _speed;
 
         /// <summary>
+        /// Переменный коэффициент учитывающий снижение расхода
+        /// сжигания калориев при увеличении скорости.
+        /// </summary>
+        private static double _variableCoefficientSpeed = 0.25;
+
+        /// <summary>
+        /// Постоянный коэффициент учитывающий сжигание калориев
+        /// при минимальной скорости бега.
+        /// </summary>
+        private static double _constantCoefficientSpeed = 14;
+
+        /// <summary>
         /// Gets or sets скорость бега.
         /// </summary>
         public double Speed
@@ -61,8 +73,9 @@ namespace Model.Exercises
         /// <returns>Потраченные калории.</returns>
         public double CalculationCalories()
         {
-            //TODO: коэффициенты в константы
-            return Distance * (14 - 0.25 * Speed) * Speed;
+            // TODO(+): коэффициенты в константы
+            return Distance * (_constantCoefficientSpeed -
+                _variableCoefficientSpeed * Speed) * Speed;
         }
     }
 }
