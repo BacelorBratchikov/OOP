@@ -70,10 +70,8 @@ namespace Model.Exercises
                 throw new ArgumentException($"{value} не может быть " +
                     $"отрицательным!");
             }
-            else
-            {
-                return value;
-            }
+
+            return value;
         }
 
         /// <summary>
@@ -89,13 +87,9 @@ namespace Model.Exercises
                 throw new ArgumentException($"{value} не должен быть " +
                     $"меньше {_minWeight} и больше {_maxWeight}!");
             }
-            else
-            {
-                return value;
-            }
-        }
 
-        // TODO(+): проверить комментарии
+            return value;
+        }
 
         /// <summary>
         /// Вычисление расхода калориев при жиме штанги.

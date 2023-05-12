@@ -8,8 +8,7 @@ namespace ConsoleLab3
         /// <summary>
         /// Основная пронрамма.
         /// </summary>
-        /// <param name="args">Дополнительный аргумент.</param>
-        static void Main(string[] args)
+        public static void Main()
         {
             Console.WriteLine("Давай провверим сколько калорий вы сожгли\n");
             while (true)

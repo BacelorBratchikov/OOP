@@ -39,10 +39,8 @@ namespace Model
                 throw new ArgumentException($"{value} не может быть " +
                     $"отрицательным! Кардио нагрузки не имеют вектора.");
             }
-            else
-            {
-                return value;
-            }
+
+            return value;
         }
     }
 }
