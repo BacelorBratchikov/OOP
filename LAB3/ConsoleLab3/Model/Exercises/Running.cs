@@ -3,7 +3,7 @@ namespace Model.Exercises
     /// <summary>
     /// Бег.
     /// </summary>
-    public class Running : BaseCardio, IСaloriesable
+    public class Running : BaseCardio, IInformationaly
     {
         /// <summary>
         /// Минимальная скорость бега в км/ч.
@@ -49,6 +49,11 @@ namespace Model.Exercises
         }
 
         /// <summary>
+        /// Gets метод, возвращающий информацию об упражнениях.
+        /// </summary>
+        public string TypeOfExerise => "Бег";
+
+        /// <summary>
         /// Метод проверяющий заполнение возраста.
         /// </summary>
         /// <param name="value">Скорость.</param>
@@ -74,5 +79,11 @@ namespace Model.Exercises
             return Distance * (_constantCoefficientSpeed -
                 _variableCoefficientSpeed * Speed) * Speed;
         }
+
+        /// <summary>
+        /// Gets информация по жиму штанги.
+        /// </summary>
+        public string GetInfo =>
+            $"Дистанция: {Distance}, скорость: {Speed}.";
     }
 }

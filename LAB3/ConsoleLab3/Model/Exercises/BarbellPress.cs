@@ -1,9 +1,11 @@
+using System.ComponentModel;
+
 namespace Model.Exercises
 {
     /// <summary>
     /// Жим штанги.
     /// </summary>
-    public class BarbellPress : IСaloriesable
+    public class BarbellPress : IInformationaly
     {
         /// <summary>
         /// Количество повторений.
@@ -65,14 +67,16 @@ namespace Model.Exercises
         /// <exception cref="ArgumentException">Ловится ошибка.</exception>
         private int CheckRepetitions(int value)
         {
-            if (value < 0)
-            {
-                throw new ArgumentException($"{value} должно быть " +
-                    $"целым и положитеьным!");
-            }
-
-            return value;
+            return value < 0
+                ? throw new ArgumentException($"{value} должно быть " +
+                    $"целым и положитеьным!")
+                : value;
         }
+
+        /// <summary>
+        /// Gets метод, возвращающий информацию об упражнениях.
+        /// </summary>
+        public string TypeOfExerise => "Жим штанги";
 
         /// <summary>
         /// Метод проверяющий заполнение веса.
@@ -82,13 +86,10 @@ namespace Model.Exercises
         /// <exception cref="ArgumentException">Ловится ошибка.</exception>
         private double CheckWeight(double value)
         {
-            if (value < _minWeight || value > _maxWeight)
-            {
-                throw new ArgumentException($"{value} не должен быть " +
-                    $"меньше {_minWeight} и больше {_maxWeight}!");
-            }
-
-            return value;
+            return value < _minWeight || value > _maxWeight
+                ? throw new ArgumentException($"{value} не должен быть " +
+                    $"меньше {_minWeight} и больше {_maxWeight}!")
+                : value;
         }
 
         /// <summary>
@@ -117,8 +118,10 @@ namespace Model.Exercises
         public BarbellPress()
         { }
 
-
-        public override string GetInfo =>
-            $"{}";
+        /// <summary>
+        /// Gets информация по жиму штанги.
+        /// </summary>
+        public string GetInfo =>
+            $"Подходов: {Repetitions}, вес: {Weight}.";
     }
 }

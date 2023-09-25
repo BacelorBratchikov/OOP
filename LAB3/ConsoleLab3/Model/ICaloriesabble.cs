@@ -1,3 +1,5 @@
+using System.ComponentModel;
+
 namespace Model
 {
     /// <summary>
@@ -9,6 +11,7 @@ namespace Model
         /// Базовый метод считает калории.
         /// </summary>
         /// <returns>Число калорий.</returns>
+        [DisplayName("Сожжено калорий, ккал")]
         double CalculationCalories();
     }
 }

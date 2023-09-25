@@ -17,5 +17,11 @@ namespace Model
         /// </summary>
         [DisplayName("Информация об упражнениях")]
         public abstract string GetInfo { get; }
+
+        /// <summary>
+        /// Gets метод, возвращающий информацию об упражнениях.
+        /// </summary>
+        [DisplayName("Информация об упражнениях")]
+        public abstract string TypeOfExerise { get; }
     }
 }
