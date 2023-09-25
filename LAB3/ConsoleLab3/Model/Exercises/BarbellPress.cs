@@ -67,8 +67,8 @@ namespace Model.Exercises
         {
             if (value < 0)
             {
-                throw new ArgumentException($"{value} не может быть " +
-                    $"отрицательным!");
+                throw new ArgumentException($"{value} должно быть " +
+                    $"целым и положитеьным!");
             }
 
             return value;
@@ -99,5 +99,26 @@ namespace Model.Exercises
         {
             return Weight * Repetitions / 3;
         }
+
+        /// <summary>
+        /// Конструктор класса.
+        /// </summary>
+        /// <param name="repetitions">Повторения.</param>
+        /// <param name="weight">Вес.</param>
+        public BarbellPress(int repetitions, double weight)
+        {
+            Repetitions = repetitions;
+            Weight = weight;
+        }
+
+        /// <summary>
+        /// Конструктор по умолчанию.
+        /// </summary>
+        public BarbellPress()
+        { }
+
+
+        public override string GetInfo =>
+            $"{}";
     }
 }
