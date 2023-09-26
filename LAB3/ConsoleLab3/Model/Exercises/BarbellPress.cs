@@ -1,4 +1,6 @@
 using System.ComponentModel;
+using Model.BaseAbstractClass;
+using Model.Interface;
 
 namespace Model.Exercises
 {
@@ -8,7 +10,17 @@ namespace Model.Exercises
     public class BarbellPress : BaseExerсice, IСaloriesable
     {
         /// <summary>
-        /// Количество повторений.
+        /// Минимальный вес штанги в кг.
+        /// </summary>
+        internal const int _minRepetitions = 0;
+
+        /// <summary>
+        /// Максимальное число повторений на 2023.
+        /// </summary>
+        internal const int _maxRepetitions = 1830;
+
+        /// <summary>
+        /// Повторения.
         /// </summary>
         private int _repetitions;
 
@@ -31,12 +43,12 @@ namespace Model.Exercises
         /// <summary>
         /// Минимальный вес штанги в кг.
         /// </summary>
-        private const double _minWeight = 6;
+        internal const double _minWeight = 6;
 
         /// <summary>
         /// Максимальный вес снаряда в кг.
         /// </summary>
-        private const double _maxWeight = 460;
+        internal const double _maxWeight = 460;
 
         /// <summary>
         /// Вес.
@@ -85,10 +97,10 @@ namespace Model.Exercises
         /// <exception cref="ArgumentException">Ловится ошибка.</exception>
         private int CheckRepetitions(int value)
         {
-            return value < 0
-                ? throw new ArgumentException($"{value} должно быть " +
-                    $"целым и положитеьным!")
-                : value;
+            return value < _minRepetitions || value > _maxRepetitions
+               ? throw new ArgumentException($"{value} не должен быть " +
+                   $"меньше {_minRepetitions} и больше {_maxRepetitions}!")
+               : value;
         }
 
         /// Метод проверяющий заполнение веса.

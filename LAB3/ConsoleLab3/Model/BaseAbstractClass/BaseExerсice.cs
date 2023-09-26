@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace Model
+namespace Model.BaseAbstractClass
 {
     /// <summary>
     /// Базовый класс информации об упражнениях.

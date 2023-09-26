@@ -1,3 +1,6 @@
+using Model.BaseAbstractClass;
+using Model.Interface;
+
 namespace Model.Exercises
 {
     /// <summary>
@@ -8,12 +11,12 @@ namespace Model.Exercises
         /// <summary>
         /// Минимальная скорость бега в км/ч.
         /// </summary>
-        private const double _minSpeed = 0;
+        internal const double _minSpeed = 0;
 
         /// <summary>
         /// Максимальная скорость бега человека в км/ч.
         /// </summary>
-        private const double _maxSpeed = 44;
+        internal const double _maxSpeed = 44;
 
         /// <summary>
         /// Скорость.
@@ -66,20 +69,17 @@ namespace Model.Exercises
             CalculationCalories();
 
         /// <summary>
-        /// Метод проверяющий заполнение возраста.
+        /// Метод проверяющий заполнение скорости бега.
         /// </summary>
         /// <param name="value">Скорость.</param>
         /// <returns>Скорость.</returns>
         /// <exception cref="ArgumentException">Ловится ошибка.</exception>
         private double CheckSpeed(double value)
         {
-            if (value < _minSpeed || value > _maxSpeed)
-            {
-                throw new ArgumentException($"{value} не должен быть " +
-                    $"меньше {_minSpeed} и больше {_maxSpeed}!");
-            }
-
-            return value;
+            return value < _minSpeed || value > _maxSpeed
+                ? throw new ArgumentException($"{value} не должен быть " +
+                    $"меньше {_minSpeed} и больше {_maxSpeed}!")
+                : value;
         }
 
         /// <summary>
@@ -90,6 +90,23 @@ namespace Model.Exercises
         {
             return Distance * (_constantCoefficientSpeed -
                 _variableCoefficientSpeed * Speed) * Speed;
+        }
+
+        /// <summary>
+        /// Конструктор по умолчанию.
+        /// </summary>
+        public Running()
+        { }
+
+        /// <summary>
+        /// конструктор класса.
+        /// </summary>
+        /// <param name="distance">Расстояние.</param>
+        /// <param name="speed">Скорость.</param>
+        public Running(double distance, double speed)
+        {
+            Distance = distance;
+            Speed = speed;
         }
     }
 }

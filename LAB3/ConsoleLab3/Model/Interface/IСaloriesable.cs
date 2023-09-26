@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace Model
+namespace Model.Interface
 {
     /// <summary>
     /// Интерфейс содержащий метод расчета калорий.

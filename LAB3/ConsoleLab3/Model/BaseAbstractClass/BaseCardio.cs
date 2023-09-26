@@ -1,10 +1,20 @@
-namespace Model
+namespace Model.BaseAbstractClass
 {
     /// <summary>
     /// Базовый класс для кардио упражнений.
     /// </summary>
     public abstract class BaseCardio : BaseExerсice
     {
+        /// <summary>
+        /// Минимальное расстояние.
+        /// </summary>
+        internal const double _minDistance = 0;
+
+        /// <summary>
+        /// Максимальное расстояние марафона.
+        /// </summary>
+        internal const double _maxDistance = 560;
+
         /// <summary>
         /// Расстояние.
         /// </summary>
@@ -34,9 +44,9 @@ namespace Model
         /// <exception cref="ArgumentException">Ловится ошибка.</exception>
         private double CheckDistance(double value)
         {
-            return value < 0
-                ? throw new ArgumentException($"{value} не может быть " +
-                    $"отрицательным! Кардио нагрузки не имеют вектора.")
+            return value < _minDistance || value > _maxDistance
+                ? throw new ArgumentException($"{value} не должен быть " +
+                    $"меньше {_minDistance} и больше {_maxDistance}!")
                 : value;
         }
     }

@@ -1,3 +1,7 @@
+using Model.BaseAbstractClass;
+using Model.EnumsDifferentTypes;
+using Model.Interface;
+
 namespace Model.Exercises
 {
     /// <summary>
@@ -72,6 +76,23 @@ namespace Model.Exercises
                         " в ассоциации спорта");
                     }
             }
+        }
+
+        /// <summary>
+        /// Конструктор по умолчанию.
+        /// </summary>
+        public Swimming()
+        { }
+
+        /// <summary>
+        /// конструктор класса.
+        /// </summary>
+        /// <param name="distance">Расстояние.</param>
+        /// <param name="swimmingType">Тип плавания.</param>
+        public Swimming(double distance, TypesOfSwimming swimmingType)
+        {
+            Distance = distance;
+            SwimmingType = swimmingType;
         }
     }
 }

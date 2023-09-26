@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace Model
+namespace Model.EnumsDifferentTypes
 {
     /// <summary>
     /// Стили плавания.

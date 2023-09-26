@@ -4,13 +4,14 @@ using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Model.EnumsDifferentTypes;
 
-namespace Model
+namespace Model.BaseAbstractClass
 {
     /// <summary>
     /// Базовый класс создания рандомных упражнений.
     /// </summary>
-    internal abstract class BaseRandomExerise
+    public abstract class BaseRandomExerise
     {
         /// <summary>
         /// Получить экземпляр типа упражнения.
