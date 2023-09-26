@@ -3,7 +3,7 @@ namespace Model.Exercises
     /// <summary>
     /// Плавание.
     /// </summary>
-    public class Swimming : BaseCardio, IInformationaly
+    public class Swimming : BaseCardio, IСaloriesable
     {
         /// <summary>
         /// Gets or sets стиль плавания.
@@ -24,9 +24,21 @@ namespace Model.Exercises
             };
 
         /// <summary>
-        /// Gets метод, возвращающий информацию об упражнениях.
+        /// Gets метод, возвращающий информацию о типе упражнения.
         /// </summary>
-        public string TypeOfExerise => "Плавание";
+        public override string TypeOfExerise => "Плавание";
+
+        /// <summary>
+        /// Gets информация по жиму штанги.
+        /// </summary>
+        public override string GetInfo =>
+            $"Дистанция: {Distance}, тип плавания: {SwimmingType}.";
+
+        /// <summary>
+        /// Gets информация по сожженым калориям.
+        /// </summary>
+        public override double Calories =>
+            CalculationCalories();
 
         /// <summary>
         /// Сжигаемые калории при плавании.
@@ -61,11 +73,5 @@ namespace Model.Exercises
                     }
             }
         }
-
-        /// <summary>
-        /// Gets информация по жиму штанги.
-        /// </summary>
-        public string GetInfo =>
-            $"Дистанция: {Distance}, тип плавания: {SwimmingType}.";
     }
 }

@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
     <AnalysisLevel>6.0</AnalysisLevel>
-    <CodeAnalysisRuleSet>stylecop.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>Rules\stylecop.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,7 +14,6 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <AdditionalFiles Include="stylecop.json" />
-  </ItemGroup>
+</ItemGroup>
 
 </Project>

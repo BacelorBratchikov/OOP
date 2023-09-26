@@ -3,7 +3,7 @@ namespace Model
     /// <summary>
     /// Базовый класс для кардио упражнений.
     /// </summary>
-    public class BaseCardio
+    public abstract class BaseCardio : BaseExerсice
     {
         /// <summary>
         /// Расстояние.
@@ -34,13 +34,10 @@ namespace Model
         /// <exception cref="ArgumentException">Ловится ошибка.</exception>
         private double CheckDistance(double value)
         {
-            if (value < 0)
-            {
-                throw new ArgumentException($"{value} не может быть " +
-                    $"отрицательным! Кардио нагрузки не имеют вектора.");
-            }
-
-            return value;
+            return value < 0
+                ? throw new ArgumentException($"{value} не может быть " +
+                    $"отрицательным! Кардио нагрузки не имеют вектора.")
+                : value;
         }
     }
 }

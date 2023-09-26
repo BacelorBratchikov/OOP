@@ -5,7 +5,7 @@ namespace Model.Exercises
     /// <summary>
     /// Жим штанги.
     /// </summary>
-    public class BarbellPress : IInformationaly
+    public class BarbellPress : BaseExerсice, IСaloriesable
     {
         /// <summary>
         /// Количество повторений.
@@ -60,6 +60,24 @@ namespace Model.Exercises
         }
 
         /// <summary>
+        /// <summary>
+        /// Gets метод, возвращающий информацию о типе упражнения.
+        /// </summary>
+        public override string TypeOfExerise => "Жим штанги";
+
+        /// <summary>
+        /// Gets информация по жиму штанги.
+        /// </summary>
+        public override string GetInfo =>
+            $"Подходов: {Repetitions}, вес: {Weight}.";
+
+        /// <summary>
+        /// Gets информация по сожженым калориям.
+        /// </summary>
+        public override double Calories =>
+            CalculationCalories();
+
+        /// <summary>
         /// Метод проверяющий заполнение повторений.
         /// </summary>
         /// <param name="value">Повторения.</param>
@@ -73,12 +91,6 @@ namespace Model.Exercises
                 : value;
         }
 
-        /// <summary>
-        /// Gets метод, возвращающий информацию об упражнениях.
-        /// </summary>
-        public string TypeOfExerise => "Жим штанги";
-
-        /// <summary>
         /// Метод проверяющий заполнение веса.
         /// </summary>
         /// <param name="value">Вес.</param>
@@ -102,6 +114,12 @@ namespace Model.Exercises
         }
 
         /// <summary>
+        /// Конструктор по умолчанию.
+        /// </summary>
+        public BarbellPress()
+        { }
+
+        /// <summary>
         /// Конструктор класса.
         /// </summary>
         /// <param name="repetitions">Повторения.</param>
@@ -111,17 +129,5 @@ namespace Model.Exercises
             Repetitions = repetitions;
             Weight = weight;
         }
-
-        /// <summary>
-        /// Конструктор по умолчанию.
-        /// </summary>
-        public BarbellPress()
-        { }
-
-        /// <summary>
-        /// Gets информация по жиму штанги.
-        /// </summary>
-        public string GetInfo =>
-            $"Подходов: {Repetitions}, вес: {Weight}.";
     }
 }
