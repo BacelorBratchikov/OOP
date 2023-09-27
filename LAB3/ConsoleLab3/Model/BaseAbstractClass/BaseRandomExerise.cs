@@ -18,7 +18,7 @@ namespace Model.BaseAbstractClass
         /// </summary>
         /// <param name="typeOfExerise">Тип упражнения.</param>
         /// <returns>Экземпляр класса BaseExerсice.</returns>
-        public abstract BaseExerсice GetInstance
+        public abstract BaseExerсise GetInstance
             (TypesOfExerise typeOfExerise);
 
         /// <summary>

@@ -15,7 +15,7 @@ namespace Model.BaseAbstractClass
     [XmlInclude(typeof(BarbellPress))]
     [XmlInclude(typeof(Running))]
     [XmlInclude(typeof(Swimming))]
-    public abstract class BaseExerсice
+    public abstract class BaseExerсise
     {
         /// <summary>
         /// Gets метод, возвращающий тип упражнения.
@@ -38,7 +38,7 @@ namespace Model.BaseAbstractClass
         /// <summary>
         /// Конструктор по умолчания.
         /// </summary>
-        protected BaseExerсice()
+        protected BaseExerсise()
         { }
     }
 }

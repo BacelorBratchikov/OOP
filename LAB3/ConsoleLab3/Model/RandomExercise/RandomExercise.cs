@@ -23,7 +23,7 @@ namespace Model.RandomExercise
         /// <returns>Экземпляр случайного упражнения.</returns>
         /// <exception cref="ArgumentException">Ошибка о несуществовании
         /// типа упражнения.</exception>
-        public override BaseExerсice GetInstance(TypesOfExerise typeOfExerise)
+        public override BaseExerсise GetInstance(TypesOfExerise typeOfExerise)
         {
             double tmpDistance = GetRandomValue
                 (BaseCardio._minDistance, BaseCardio._maxDistance);

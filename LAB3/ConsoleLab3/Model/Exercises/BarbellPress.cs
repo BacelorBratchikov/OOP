@@ -7,7 +7,7 @@ namespace Model.Exercises
     /// <summary>
     /// Жим штанги.
     /// </summary>
-    public class BarbellPress : BaseExerсice, IСaloriesable
+    public class BarbellPress : BaseExerсise, IСaloriesable
     {
         /// <summary>
         /// Минимальный вес штанги в кг.

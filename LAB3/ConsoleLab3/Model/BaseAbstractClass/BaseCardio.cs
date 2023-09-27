@@ -3,7 +3,7 @@ namespace Model.BaseAbstractClass
     /// <summary>
     /// Базовый класс для кардио упражнений.
     /// </summary>
-    public abstract class BaseCardio : BaseExerсice
+    public abstract class BaseCardio : BaseExerсise
     {
         /// <summary>
         /// Минимальное расстояние.

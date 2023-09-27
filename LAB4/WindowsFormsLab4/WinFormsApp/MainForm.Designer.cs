@@ -68,14 +68,16 @@
             // SaveFileToolStripMenuItem
             // 
             SaveFileToolStripMenuItem.Name = "SaveFileToolStripMenuItem";
-            SaveFileToolStripMenuItem.Size = new Size(205, 26);
+            SaveFileToolStripMenuItem.Size = new Size(224, 26);
             SaveFileToolStripMenuItem.Text = "Сохранить файл";
+            SaveFileToolStripMenuItem.Click += SaveFileToolStripMenuItem_Click;
             // 
             // LoadFileToolStripMenuItem
             // 
             LoadFileToolStripMenuItem.Name = "LoadFileToolStripMenuItem";
-            LoadFileToolStripMenuItem.Size = new Size(205, 26);
+            LoadFileToolStripMenuItem.Size = new Size(224, 26);
             LoadFileToolStripMenuItem.Text = "Загрузить файл";
+            LoadFileToolStripMenuItem.Click += LoadFileToolStripMenuItem_Click;
             // 
             // AddButton
             // 
