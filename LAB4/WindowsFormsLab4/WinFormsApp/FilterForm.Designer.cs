@@ -69,6 +69,7 @@
             // SwimmingCheckBox
             // 
             SwimmingCheckBox.AutoSize = true;
+            SwimmingCheckBox.Checked = true;
             SwimmingCheckBox.Location = new Point(10, 87);
             SwimmingCheckBox.Name = "SwimmingCheckBox";
             SwimmingCheckBox.Size = new Size(100, 24);
@@ -79,6 +80,7 @@
             // RunningCheckBox
             // 
             RunningCheckBox.AutoSize = true;
+            RunningCheckBox.Checked = true;
             RunningCheckBox.Location = new Point(10, 56);
             RunningCheckBox.Name = "RunningCheckBox";
             RunningCheckBox.Size = new Size(54, 24);
@@ -107,6 +109,7 @@
             // BarbellPressCheckBox
             // 
             BarbellPressCheckBox.AutoSize = true;
+            BarbellPressCheckBox.Checked = true;
             BarbellPressCheckBox.Location = new Point(10, 26);
             BarbellPressCheckBox.Name = "BarbellPressCheckBox";
             BarbellPressCheckBox.Size = new Size(118, 24);

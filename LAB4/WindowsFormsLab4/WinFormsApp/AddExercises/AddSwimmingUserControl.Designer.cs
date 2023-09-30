@@ -80,7 +80,6 @@
             comboBoxTypeOfSwimming.Name = "comboBoxTypeOfSwimming";
             comboBoxTypeOfSwimming.Size = new Size(151, 28);
             comboBoxTypeOfSwimming.TabIndex = 2;
-            comboBoxTypeOfSwimming.SelectedIndexChanged += comboBoxTypeOfSwimming_SelectedIndexChanged;
             // 
             // AddSwimmingUserControl
             // 
@@ -92,7 +91,7 @@
             Controls.Add(labelDistance);
             Controls.Add(labelTypeOfSwimming);
             Name = "AddSwimmingUserControl";
-            Size = new Size(325, 122);
+            Size = new Size(307, 122);
             ResumeLayout(false);
             PerformLayout();
         }

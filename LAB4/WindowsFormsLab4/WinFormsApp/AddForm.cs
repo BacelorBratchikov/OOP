@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Model.EnumsDifferentTypes;
+using Model.RandomExercise;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,12 +13,22 @@ using WinFormsApp.AddExercises.Interface;
 
 namespace WinFormsApp
 {
-    public partial class AddForm : Form, IAddedable
+    public partial class AddForm : Form
     {
+
         /// <summary>
-        /// Событие добавления фигуры.
+        /// Обработчик события добавления упражнения.
         /// </summary>
-        public EventHandler<EventArgs> ExerciseAdded;
+        private EventHandler<ExerciseEventArgs> _exerciseAdded;
+
+        /// <summary>
+        /// Gets or sets обработчик события добавления упражнения.
+        /// </summary>
+        public EventHandler<ExerciseEventArgs> ExerciseAdded
+        {
+            get => _exerciseAdded;
+            set => _exerciseAdded = value;
+        }
 
         /// <summary>
         /// Словарь UserControls
@@ -102,10 +114,8 @@ namespace WinFormsApp
             }
             catch
             {
-                MessageBox.Show(
-                    "Введено некорректное значение!\n" +
-                    "Введите одно положительное число" +
-                    " в каждое текстовое поле.",
+                    MessageBox.Show(
+                    "Заполните все поля на форме",
                     "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -129,15 +139,18 @@ namespace WinFormsApp
         {
             Random random = new Random();
 
-            comboBoxExercise.SelectedIndex = random.Next(0, 3);
-
-            foreach (TextBox textbox in userControl.Controls.OfType<TextBox>())
+            var exerciseTypes = new Dictionary<int, TypesOfExerise>
             {
-                if (textbox.Visible && String.IsNullOrEmpty(textbox.Text))
-                {
-                    textbox.Text = random.Next(1, 100).ToString();
-                }
-            }
+                {0, TypesOfExerise.BarbellPres},
+                {1, TypesOfExerise.Swimming},
+                {2, TypesOfExerise.Running},
+            };
+            var randomType = random.Next(exerciseTypes.Count);
+            var randomExercise = new RandomExercise()
+                    .GetInstance(exerciseTypes[randomType]);
+
+            var eventArgs = new ExerciseEventArgs(randomExercise);
+            ExerciseAdded?.Invoke(this, eventArgs);
         }
     }
 }

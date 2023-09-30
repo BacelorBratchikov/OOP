@@ -10,7 +10,7 @@ namespace WinFormsApp
     /// <summary>
     /// Класс событий.
     /// </summary>
-    internal class ExerciseEventArgs : EventArgs
+    public class ExerciseEventArgs : EventArgs
     {
         /// <summary>
         /// Gets упражнение.

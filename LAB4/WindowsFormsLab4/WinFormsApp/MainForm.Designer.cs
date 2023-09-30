@@ -1,4 +1,6 @@
-﻿namespace WinFormsApp
+﻿using System.Windows.Forms;
+
+namespace WinFormsApp
 {
     partial class MainForm
     {
@@ -29,6 +31,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             toolStrip1 = new ToolStrip();
             toolStripDropDownButton1 = new ToolStripDropDownButton();
             SaveFileToolStripMenuItem = new ToolStripMenuItem();
@@ -51,7 +54,7 @@
             toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripDropDownButton1 });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(639, 27);
+            toolStrip1.Size = new Size(638, 27);
             toolStrip1.TabIndex = 0;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -68,14 +71,14 @@
             // SaveFileToolStripMenuItem
             // 
             SaveFileToolStripMenuItem.Name = "SaveFileToolStripMenuItem";
-            SaveFileToolStripMenuItem.Size = new Size(224, 26);
+            SaveFileToolStripMenuItem.Size = new Size(205, 26);
             SaveFileToolStripMenuItem.Text = "Сохранить файл";
             SaveFileToolStripMenuItem.Click += SaveFileToolStripMenuItem_Click;
             // 
             // LoadFileToolStripMenuItem
             // 
             LoadFileToolStripMenuItem.Name = "LoadFileToolStripMenuItem";
-            LoadFileToolStripMenuItem.Size = new Size(224, 26);
+            LoadFileToolStripMenuItem.Size = new Size(205, 26);
             LoadFileToolStripMenuItem.Text = "Загрузить файл";
             LoadFileToolStripMenuItem.Click += LoadFileToolStripMenuItem_Click;
             // 
@@ -96,15 +99,24 @@
             // dataGridView1
             // 
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllHeaders;
             dataGridView1.BackgroundColor = Color.LightCyan;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.Location = new Point(6, 46);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(486, 214);
-            dataGridView1.TabIndex = 2;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.Size = new Size(538, 214);
+            dataGridView1.TabIndex = 0;
             // 
             // groupBox1
             // 
@@ -113,7 +125,7 @@
             groupBox1.Controls.Add(dataGridView1);
             groupBox1.Location = new Point(73, 30);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(498, 286);
+            groupBox1.Size = new Size(550, 286);
             groupBox1.TabIndex = 3;
             groupBox1.TabStop = false;
             groupBox1.Text = "Список упражнений";
@@ -166,7 +178,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             BackColor = Color.White;
-            ClientSize = new Size(639, 343);
+            ClientSize = new Size(638, 343);
             Controls.Add(groupBox1);
             Controls.Add(CleanAllButton);
             Controls.Add(FilterButton);

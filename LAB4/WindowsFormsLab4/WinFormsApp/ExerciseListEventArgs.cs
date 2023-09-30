@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace WinFormsApp
 {
-    internal class ExerciseListEventArgs : EventArgs
+    public class ExerciseListEventArgs : EventArgs
     {
         /// <summary>
         /// Gets фигура.
         /// </summary>
-        public BindingList<BaseExerсise> ExerсiceList { get; private set; }
+        public BindingList<BaseExerсise> ExerсiseList { get; private set; }
 
         /// <summary>
         /// Конструктор события добавления фигуры.
@@ -21,7 +21,7 @@ namespace WinFormsApp
         /// <param name="exerсice">Упражнение.</param>
         public ExerciseListEventArgs(BindingList<BaseExerсise> exerсice)
         {
-            this.ExerсiceList = exerсice;
+            this.ExerсiseList = exerсice;
         }
     }
 }

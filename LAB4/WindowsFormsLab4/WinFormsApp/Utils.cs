@@ -49,5 +49,20 @@
         {
             return int.Parse(number);
         }
+
+        /// <summary>
+        /// Проверка типа плавания.
+        /// </summary>
+        /// <param name="text">Строка.</param>
+        /// <returns>Проверенное значение.</returns>
+        public static string CheckTypeOfSwimming(string text)
+        {
+            if (string.IsNullOrEmpty(text))
+            {
+                throw new ArgumentNullException("Не выбран тип плавнаия");
+            }
+
+            return text;
+        }
     }
 }

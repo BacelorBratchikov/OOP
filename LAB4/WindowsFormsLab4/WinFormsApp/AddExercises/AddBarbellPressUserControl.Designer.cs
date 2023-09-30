@@ -82,7 +82,7 @@
             textBoxRepetitions.Name = "textBoxRepetitions";
             textBoxRepetitions.Size = new Size(125, 27);
             textBoxRepetitions.TabIndex = 1;
-            textBoxRepetitions.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxRepetitions_KeyPress);
+            textBoxRepetitions.KeyPress += textBoxRepetitions_KeyPress;
             // 
             // textBoxWeight
             // 
@@ -90,7 +90,7 @@
             textBoxWeight.Name = "textBoxWeight";
             textBoxWeight.Size = new Size(125, 27);
             textBoxWeight.TabIndex = 1;
-            textBoxWeight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxWeight_KeyPress);
+            textBoxWeight.KeyPress += textBoxWeight_KeyPress;
             // 
             // AddBarbellPressUserControl
             // 
@@ -103,7 +103,7 @@
             Controls.Add(labelWeight);
             Controls.Add(labelRepetitions);
             Name = "AddBarbellPressUserControl";
-            Size = new Size(325, 122);
+            Size = new Size(309, 122);
             ResumeLayout(false);
             PerformLayout();
         }

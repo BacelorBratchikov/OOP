@@ -103,7 +103,7 @@
             Controls.Add(labelSpeed);
             Controls.Add(labelDistance);
             Name = "AddRunningUserControl";
-            Size = new Size(325, 122);
+            Size = new Size(309, 122);
             ResumeLayout(false);
             PerformLayout();
         }

@@ -29,6 +29,11 @@ namespace WinFormsApp
         public MainForm()
         {
             this.InitializeComponent();
+            var source = new BindingSource(exerciseList, null);
+            dataGridView1.DataSource = source;
+
+            dataGridView1.Columns[0].AutoSizeMode =
+                DataGridViewAutoSizeColumnMode.AllCells;
         }
 
         /// <summary>
@@ -40,10 +45,18 @@ namespace WinFormsApp
         {
             var addExetciseForm = new AddForm();
 
-            addExetciseForm.ExetciseAdded += (sender, figureEventArgs) =>
+            addExetciseForm.ExerciseAdded += (sender, exerciseEventArgs) =>
             {
-                this.exerciseList.Add(((ExerciseEventArgs)figureEventArgs).Exercise);
+                this.exerciseList.Add(((ExerciseEventArgs)exerciseEventArgs).Exerсise);
+                dataGridView1.DataSource = exerciseList;
             };
+
+            addExetciseForm.Closed += (_, _) =>
+            {
+                AddButton.Enabled = true;
+            };
+
+            AddButton.Enabled = false;
             addExetciseForm.ShowDialog();
         }
 
@@ -74,12 +87,12 @@ namespace WinFormsApp
         {
             var newFilterForm = new FilterForm(this.exerciseList);
             newFilterForm.Show();
-            newFilterForm.ExerciseFiltered += (sender, exerciseEventArgs) =>
+            newFilterForm.ExerсiseFiltered += (sender, exerciseEventArgs) =>
             {
                 this.dataGridView1.DataSource =
-                ((ExerciseListEventArgs)exerciseEventArgs).ExerciseList;
+                ((ExerciseListEventArgs)exerciseEventArgs).ExerсiseList;
                 this.filteredList =
-                ((ExerciseListEventArgs)exerciseEventArgs).ExerciseList;
+                ((ExerciseListEventArgs)exerciseEventArgs).ExerсiseList;
             };
         }
 
@@ -90,7 +103,16 @@ namespace WinFormsApp
         /// <param name="e">Данные о событии.</param>
         private void CleanAllButton_Click(object sender, EventArgs e)
         {
-            this.exerciseList.Clear();
+            if (exerciseList.Count != 0)
+            {
+                if (MessageBox.Show(
+                    "Вы действительно хотите очистить список всех изданий?",
+                    "Очистка всех изданий",
+                    MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    this.exerciseList.Clear();
+                }
+            }
         }
 
         /// <summary>
@@ -104,7 +126,7 @@ namespace WinFormsApp
             {
                 var saveFileDialog = new SaveFileDialog
                 {
-                    Filter = "Файлы (*.fgr)|*.fgr|Все файлы (*.*)|*.*",
+                    Filter = "Файлы (*.exr)|*.exr|Все файлы (*.*)|*.*",
                 };
 
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
@@ -142,7 +164,7 @@ namespace WinFormsApp
         {
             var openFileDialog = new OpenFileDialog
             {
-                Filter = "Файлы (*.fgr)|*.fgr|Все файлы (*.*)|*.*",
+                Filter = "Файлы (*.exr)|*.exr|Все файлы (*.*)|*.*",
             };
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)

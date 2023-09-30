@@ -34,6 +34,10 @@
             comboBoxExercise = new ComboBox();
             label_Chouse = new Label();
             groupBox1 = new GroupBox();
+            addBarbellPressUserControl1 = new AddBarbellPressUserControl();
+            addRunningUserControl1 = new AddRunningUserControl();
+            addSwimmingUserControl1 = new AddSwimmingUserControl();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // Random
@@ -86,12 +90,36 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(addSwimmingUserControl1);
+            groupBox1.Controls.Add(addRunningUserControl1);
+            groupBox1.Controls.Add(addBarbellPressUserControl1);
             groupBox1.Location = new Point(20, 100);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(329, 170);
             groupBox1.TabIndex = 30;
             groupBox1.TabStop = false;
             groupBox1.Text = "Параметры упражнений";
+            // 
+            // addBarbellPressUserControl1
+            // 
+            addBarbellPressUserControl1.Location = new Point(6, 26);
+            addBarbellPressUserControl1.Name = "addBarbellPressUserControl1";
+            addBarbellPressUserControl1.Size = new Size(318, 116);
+            addBarbellPressUserControl1.TabIndex = 0;
+            // 
+            // addRunningUserControl1
+            // 
+            addRunningUserControl1.Location = new Point(2, 29);
+            addRunningUserControl1.Name = "addRunningUserControl1";
+            addRunningUserControl1.Size = new Size(321, 113);
+            addRunningUserControl1.TabIndex = 1;
+            // 
+            // addSwimmingUserControl1
+            // 
+            addSwimmingUserControl1.Location = new Point(2, 34);
+            addSwimmingUserControl1.Name = "addSwimmingUserControl1";
+            addSwimmingUserControl1.Size = new Size(322, 130);
+            addSwimmingUserControl1.TabIndex = 2;
             // 
             // AddForm
             // 
@@ -111,6 +139,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Добавление упражнения";
             Load += AddForm_Load;
+            groupBox1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
