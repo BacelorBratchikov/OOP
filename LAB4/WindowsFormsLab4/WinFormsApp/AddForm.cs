@@ -114,9 +114,9 @@ namespace WinFormsApp
             }
             catch
             {
-                    MessageBox.Show(
-                    "Заполните все поля на форме",
-                    "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(
+                "Заполните все поля на форме",
+                "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

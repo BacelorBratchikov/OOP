@@ -36,7 +36,7 @@ namespace Model.Exercises
         /// Gets информация по жиму штанги.
         /// </summary>
         public override string GetInfo =>
-            $"Дистанция: {Distance}, тип плавания: {SwimmingType}.";
+            $"Дистанция: {Distance} км; тип плавания: {SwimmingType}.";
 
         /// <summary>
         /// Gets информация по сожженым калориям.

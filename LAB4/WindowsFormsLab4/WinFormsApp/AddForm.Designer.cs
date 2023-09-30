@@ -34,9 +34,9 @@
             comboBoxExercise = new ComboBox();
             label_Chouse = new Label();
             groupBox1 = new GroupBox();
-            addBarbellPressUserControl1 = new AddBarbellPressUserControl();
-            addRunningUserControl1 = new AddRunningUserControl();
             addSwimmingUserControl1 = new AddSwimmingUserControl();
+            addRunningUserControl1 = new AddRunningUserControl();
+            addBarbellPressUserControl1 = new AddBarbellPressUserControl();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -56,7 +56,7 @@
             Cancel.Name = "Cancel";
             Cancel.Size = new Size(140, 30);
             Cancel.TabIndex = 25;
-            Cancel.Text = "Отменить";
+            Cancel.Text = "Закрыть";
             Cancel.UseVisualStyleBackColor = true;
             Cancel.Click += buttonCancel_Click;
             // 
@@ -100,12 +100,12 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Параметры упражнений";
             // 
-            // addBarbellPressUserControl1
+            // addSwimmingUserControl1
             // 
-            addBarbellPressUserControl1.Location = new Point(6, 26);
-            addBarbellPressUserControl1.Name = "addBarbellPressUserControl1";
-            addBarbellPressUserControl1.Size = new Size(318, 116);
-            addBarbellPressUserControl1.TabIndex = 0;
+            addSwimmingUserControl1.Location = new Point(2, 34);
+            addSwimmingUserControl1.Name = "addSwimmingUserControl1";
+            addSwimmingUserControl1.Size = new Size(322, 130);
+            addSwimmingUserControl1.TabIndex = 2;
             // 
             // addRunningUserControl1
             // 
@@ -114,12 +114,12 @@
             addRunningUserControl1.Size = new Size(321, 113);
             addRunningUserControl1.TabIndex = 1;
             // 
-            // addSwimmingUserControl1
+            // addBarbellPressUserControl1
             // 
-            addSwimmingUserControl1.Location = new Point(2, 34);
-            addSwimmingUserControl1.Name = "addSwimmingUserControl1";
-            addSwimmingUserControl1.Size = new Size(322, 130);
-            addSwimmingUserControl1.TabIndex = 2;
+            addBarbellPressUserControl1.Location = new Point(6, 26);
+            addBarbellPressUserControl1.Name = "addBarbellPressUserControl1";
+            addBarbellPressUserControl1.Size = new Size(318, 116);
+            addBarbellPressUserControl1.TabIndex = 0;
             // 
             // AddForm
             // 

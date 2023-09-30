@@ -81,7 +81,7 @@ namespace Model.Exercises
         /// Gets информация по жиму штанги.
         /// </summary>
         public override string GetInfo =>
-            $"Подходов: {Repetitions}, вес: {Weight}.";
+            $"Подходов: {Repetitions} раз; вес: {Weight} кг.";
 
         /// <summary>
         /// Gets информация по сожженым калориям.

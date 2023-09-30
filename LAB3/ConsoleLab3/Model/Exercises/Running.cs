@@ -60,7 +60,7 @@ namespace Model.Exercises
         /// Gets информация по скорости бега.
         /// </summary>
         public override string GetInfo =>
-            $"Дистанция: {Distance}, скорость: {Speed}.";
+            $"Дистанция: {Distance} км; скорость: {Speed} км/ч.";
 
         /// <summary>
         /// Gets информация по сожженым калориям.

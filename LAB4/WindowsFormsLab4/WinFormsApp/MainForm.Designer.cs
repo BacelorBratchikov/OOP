@@ -54,7 +54,7 @@ namespace WinFormsApp
             toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripDropDownButton1 });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(638, 27);
+            toolStrip1.Size = new Size(730, 27);
             toolStrip1.TabIndex = 0;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -115,7 +115,7 @@ namespace WinFormsApp
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(538, 214);
+            dataGridView1.Size = new Size(633, 214);
             dataGridView1.TabIndex = 0;
             // 
             // groupBox1
@@ -125,7 +125,7 @@ namespace WinFormsApp
             groupBox1.Controls.Add(dataGridView1);
             groupBox1.Location = new Point(73, 30);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(550, 286);
+            groupBox1.Size = new Size(645, 286);
             groupBox1.TabIndex = 3;
             groupBox1.TabStop = false;
             groupBox1.Text = "Список упражнений";
@@ -178,7 +178,7 @@ namespace WinFormsApp
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             BackColor = Color.White;
-            ClientSize = new Size(638, 343);
+            ClientSize = new Size(730, 343);
             Controls.Add(groupBox1);
             Controls.Add(CleanAllButton);
             Controls.Add(FilterButton);
