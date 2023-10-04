@@ -18,9 +18,11 @@ namespace WinFormsApp
         public BaseExerсise Exerсise { get; private set; }
 
         /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ExerciseEventArgs"/> class.
         /// Конструктор события добавления упражнения.
         /// </summary>
-        /// <param name="exerсice">упражнение.</param>
+        /// <param name="exerсise">упражнение.</param>
         public ExerciseEventArgs(BaseExerсise exerсise)
         {
             Exerсise = exerсise;

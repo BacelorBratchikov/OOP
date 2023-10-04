@@ -15,12 +15,12 @@ namespace WinFormsApp
     public partial class FilterForm : Form
     {
         /// <summary>
-        /// Лист фильтруемых фигур
+        /// Лист фильтруемых упражнений.
         /// </summary>
         private readonly BindingList<BaseExerсise> _listExerсise;
 
         /// <summary>
-        /// Лист отфильтрованных фигур
+        /// Лист отфильтрованных упражнений.
         /// </summary>
         private BindingList<BaseExerсise> _listExerсiseFilter;
 
@@ -36,9 +36,11 @@ namespace WinFormsApp
         private double calorii;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FilterForm"/> class.
-        /// Форма фильтрации.
+        /// Initializes a new instance of the
+        /// <see cref="FilterForm"/> class.
+        /// Форма фильтра.
         /// </summary>
+        /// <param name="exerсise">упражнение.</param>
         public FilterForm(BindingList<BaseExerсise> exerсise)
         {
             InitializeComponent();
@@ -49,8 +51,8 @@ namespace WinFormsApp
         /// <summary>
         /// Ввод калориев.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Ссылка на объект.</param>
+        /// <param name="e">Данные о событии.</param>
         private void textBoxCalorii_TextChanged(object sender, EventArgs e)
         {
             try
@@ -70,8 +72,8 @@ namespace WinFormsApp
         /// <summary>
         /// Контроль ввода значений.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Ссылка на объект.</param>
+        /// <param name="e">Данные о событии.</param>
         private void textBoxCalorii_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utils.CheckInput(e);
@@ -80,8 +82,8 @@ namespace WinFormsApp
         /// <summary>
         /// Флажок активации поля ввода объёма.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Ссылка на объект.</param>
+        /// <param name="e">Данные о событии.</param>
         private void checkBoxCalorii_CheckedChanged(object sender, EventArgs e)
         {
             if (CaloriiCheckBox.Checked)
@@ -93,8 +95,8 @@ namespace WinFormsApp
         /// <summary>
         /// Кнопка поиска.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Ссылка на объект.</param>
+        /// <param name="e">Данные о событии.</param>
         private void buttonFilter_Click(object sender, EventArgs e)
         {
             _listExerсiseFilter = new BindingList<BaseExerсise>();

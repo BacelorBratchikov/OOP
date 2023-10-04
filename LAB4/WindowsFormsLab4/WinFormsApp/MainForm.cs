@@ -7,7 +7,7 @@ namespace WinFormsApp
     public partial class MainForm : Form
     {
         /// <summary>
-        /// Cписок фигур.
+        /// Cписок упражнений.
         /// </summary>
         private BindingList<BaseExerсise> exerciseList = new();
 
@@ -47,7 +47,8 @@ namespace WinFormsApp
 
             addExetciseForm.ExerciseAdded += (sender, exerciseEventArgs) =>
             {
-                this.exerciseList.Add(((ExerciseEventArgs)exerciseEventArgs).Exerсise);
+                this.exerciseList.Add(
+                    ((ExerciseEventArgs)exerciseEventArgs).Exerсise);
                 dataGridView1.DataSource = exerciseList;
             };
 

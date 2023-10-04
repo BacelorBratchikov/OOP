@@ -11,12 +11,14 @@ namespace WinFormsApp
     public class ExerciseListEventArgs : EventArgs
     {
         /// <summary>
-        /// Gets фигура.
+        /// Gets спсиок упражнений.
         /// </summary>
         public BindingList<BaseExerсise> ExerсiseList { get; private set; }
 
         /// <summary>
-        /// Конструктор события добавления фигуры.
+        /// Initializes a new instance of the
+        /// <see cref="ExerciseListEventArgs"/> class.
+        /// Конструктор события добавления упражнений.
         /// </summary>
         /// <param name="exerсice">Упражнение.</param>
         public ExerciseListEventArgs(BindingList<BaseExerсise> exerсice)

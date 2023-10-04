@@ -74,12 +74,5 @@ namespace WinFormsApp
 
             return swimming;
         }
-
-        /*
-        private void comboBoxTypeOfSwimming_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-        */
     }
 }

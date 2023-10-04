@@ -34,17 +34,7 @@ namespace WinFormsApp
         /// </summary>
         /// <param name="sender">Ссылка на объект.</param>
         /// <param name="e">Данные о событии.</param>
-        private void textBoxRepetitions_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Utils.CheckInput(e);
-        }
-
-        /// <summary>
-        /// Контроль ввода значений.
-        /// </summary>
-        /// <param name="sender">Ссылка на объект.</param>
-        /// <param name="e">Данные о событии.</param>
-        private void textBoxWeight_KeyPress(object sender, KeyPressEventArgs e)
+        private void textBoxCheck_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utils.CheckInput(e);
         }
