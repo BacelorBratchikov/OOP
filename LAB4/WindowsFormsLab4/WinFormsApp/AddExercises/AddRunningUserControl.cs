@@ -13,6 +13,7 @@ using WinFormsApp.AddExercises.Interface;
 
 namespace WinFormsApp
 {
+    //TODO: XML
     public partial class AddRunningUserControl : UserControl, IAddedable
     {
         /// <summary>
@@ -25,6 +26,7 @@ namespace WinFormsApp
             InitializeComponent();
         }
 
+        //TODO: RSDN
         /// <summary>
         /// Контроль ввода значений.
         /// </summary>

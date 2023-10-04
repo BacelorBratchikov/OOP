@@ -4,18 +4,22 @@ using Model.BaseAbstractClass;
 
 namespace WinFormsApp
 {
+    //TODO: XML
     public partial class MainForm : Form
     {
+        //TODO: RSDN
         /// <summary>
         /// Cïèñîê óïğàæíåíèé.
         /// </summary>
         private BindingList<BaseExerñise> exerciseList = new();
 
+        //TODO: RSDN
         /// <summary>
         /// Îòôèëüòğîâàíûé ñïèñîê.
         /// </summary>
         private BindingList<BaseExerñise> filteredList = new();
 
+        //TODO: RSDN
         /// <summary>
         /// Äëÿ ôàéëîâ.
         /// </summary>
@@ -91,9 +95,9 @@ namespace WinFormsApp
             newFilterForm.ExerñiseFiltered += (sender, exerciseEventArgs) =>
             {
                 this.dataGridView1.DataSource =
-                ((ExerciseListEventArgs)exerciseEventArgs).ExerñiseList;
+                    ((ExerciseListEventArgs)exerciseEventArgs).ExerñiseList;
                 this.filteredList =
-                ((ExerciseListEventArgs)exerciseEventArgs).ExerñiseList;
+                    ((ExerciseListEventArgs)exerciseEventArgs).ExerñiseList;
             };
         }
 

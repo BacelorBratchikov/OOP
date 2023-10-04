@@ -13,6 +13,7 @@ using WinFormsApp.AddExercises.Interface;
 
 namespace WinFormsApp
 {
+    //TODO: XML
     public partial class AddForm : Form
     {
 
@@ -47,6 +48,7 @@ namespace WinFormsApp
 
             comboBoxExercise.DropDownStyle = ComboBoxStyle.DropDownList;
 
+            //TODO: rename
             OK.Enabled = false;
 
             string[] typeExercise = { "Жим штанги", "Плавание", "Бег" };
@@ -97,6 +99,7 @@ namespace WinFormsApp
             }
         }
 
+        //TODO: RSDN
         /// <summary>
         /// Применить.
         /// </summary>
@@ -120,6 +123,7 @@ namespace WinFormsApp
             }
         }
 
+        //TODO: RSDN
         /// <summary>
         /// Закрыть.
         /// </summary>
@@ -130,6 +134,7 @@ namespace WinFormsApp
             Close();
         }
 
+        //TODO: RSDN
         /// <summary>
         /// Рандом.
         /// </summary>
