@@ -80,7 +80,7 @@ namespace WinFormsApp
         /// </summary>
         /// <param name="sender">Ссылка на объект.</param>
         /// <param name="e">Данные о событии.</param>
-        private void textBoxCalorii_KeyPress(object sender, KeyPressEventArgs e)
+        private void textBoxCaloriesKeyPress(object sender, KeyPressEventArgs e)
         {
             Utils.CheckInput(e);
         }
@@ -90,7 +90,7 @@ namespace WinFormsApp
         /// </summary>
         /// <param name="sender">Ссылка на объект.</param>
         /// <param name="e">Данные о событии.</param>
-        private void checkBoxCalorii_CheckedChanged(object sender, EventArgs e)
+        private void checkBoxCaloriesCheckedChanged(object sender, EventArgs e)
         {
             if (CaloriiCheckBox.Checked)
             {
@@ -103,7 +103,7 @@ namespace WinFormsApp
         /// </summary>
         /// <param name="sender">Ссылка на объект.</param>
         /// <param name="e">Данные о событии.</param>
-        private void buttonFilter_Click(object sender, EventArgs e)
+        private void buttonFilterClick(object sender, EventArgs e)
         {
             _listExerсiseFilter = new BindingList<BaseExerсise>();
 
@@ -159,23 +159,7 @@ namespace WinFormsApp
             }
 
             ExerciseListEventArgs eventArgs;
-
-            if (count > 0)
-            {
-                eventArgs = new ExerciseListEventArgs(_listExerсiseFilter);
-            }
-            else
-            {
-                MessageBox.Show(
-                    "Нет упражнений удовлетворяющих фильтру!",
-                    "Внимание!",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                eventArgs = new ExerciseListEventArgs(_listExerсiseFilter);
-                return;
-            }
-
+            eventArgs = new ExerciseListEventArgs(_listExerсiseFilter);
             ExerсiseFiltered?.Invoke(this, eventArgs);
             Close();
         }

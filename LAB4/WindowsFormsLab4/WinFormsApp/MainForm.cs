@@ -48,7 +48,7 @@ namespace WinFormsApp
         /// </summary>
         /// <param name="sender">Ссылка на объект.</param>
         /// <param name="e">Данные о событии.</param>
-        private void AddButton_Click(object sender, EventArgs e)
+        private void AddButtonClick(object sender, EventArgs e)
         {
             var addExetciseForm = new AddForm();
 
@@ -73,7 +73,7 @@ namespace WinFormsApp
         /// </summary>
         /// <param name="sender">Ссылка на объект.</param>
         /// <param name="e">Данные о событии.</param>
-        private void DeleteButton_Click(object sender, EventArgs e)
+        private void DeleteButtonClick(object sender, EventArgs e)
         {
             if (this.dataGridView1.SelectedCells.Count != 0)
             {
@@ -81,7 +81,15 @@ namespace WinFormsApp
                 {
                     this._exerciseList.Remove(row.DataBoundItem as BaseExerсise);
 
-                    this._exerciseList.Remove(row.DataBoundItem as BaseExerсise);
+                    if (_filteredList.Count != 0)
+                    {
+                        this._filteredList.Remove(row.DataBoundItem as BaseExerсise);
+                        this.dataGridView1.DataSource = _filteredList;
+                    }
+                    else
+                    {
+                        this.dataGridView1.DataSource = _exerciseList;
+                    }
                 }
             }
         }
@@ -91,15 +99,16 @@ namespace WinFormsApp
         /// </summary>
         /// <param name="sender">Ссылка на объект.</param>
         /// <param name="e">Данные о событии.</param>
-        private void FilterButton_Click(object sender, EventArgs e)
+        private void FilterButtonClick(object sender, EventArgs e)
         {
             var newFilterForm = new FilterForm(this._exerciseList);
             newFilterForm.Show();
             newFilterForm.ExerсiseFiltered += (sender, exerciseEventArgs) =>
             {
+                _filteredList = 
+                ((ExerciseListEventArgs)exerciseEventArgs).ExerсiseList;
+
                 this.dataGridView1.DataSource =
-                    ((ExerciseListEventArgs)exerciseEventArgs).ExerсiseList;
-                this._filteredList =
                     ((ExerciseListEventArgs)exerciseEventArgs).ExerсiseList;
             };
         }
@@ -109,16 +118,17 @@ namespace WinFormsApp
         /// </summary>
         /// <param name="sender">Ссылка на объект.</param>
         /// <param name="e">Данные о событии.</param>
-        private void CleanAllButton_Click(object sender, EventArgs e)
+        private void CleanAllButtonClick(object sender, EventArgs e)
         {
             if (_exerciseList.Count != 0)
             {
                 if (MessageBox.Show(
-                    "Вы действительно хотите очистить список всех изданий?",
-                    "Очистка всех изданий",
+                    "Вы действительно хотите очистить список всех упражнений?",
+                    "Очистка всех упражнений",
                     MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     this._exerciseList.Clear();
+                    this.dataGridView1.DataSource = _exerciseList;
                 }
             }
         }
@@ -128,7 +138,7 @@ namespace WinFormsApp
         /// </summary>
         /// <param name="sender">Ссылка на объект.</param>
         /// <param name="e">Данные о событии.</param>
-        private void SaveFileToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SaveFileToolStripMenuItemClick(object sender, EventArgs e)
         {
             if (this._exerciseList.Count != 0)
             {
@@ -168,7 +178,7 @@ namespace WinFormsApp
         /// </summary>
         /// <param name="sender">Ссылка на объект.</param>
         /// <param name="e">Данные о событии.</param>
-        private void LoadFileToolStripMenuItem_Click(object sender, EventArgs e)
+        private void LoadFileToolStripMenuItemClick(object sender, EventArgs e)
         {
             var openFileDialog = new OpenFileDialog
             {

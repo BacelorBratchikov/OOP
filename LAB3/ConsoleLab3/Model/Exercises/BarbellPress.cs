@@ -98,8 +98,10 @@ namespace Model.Exercises
         private int CheckRepetitions(int value)
         {
             return value < _minRepetitions || value > _maxRepetitions
-               ? throw new ArgumentException($"{value} не должен быть " +
-                   $"меньше {_minRepetitions} и больше {_maxRepetitions}!")
+               ? throw new ArgumentException(
+                   $"Введеное количество повтарений составляет:{value} раз. " +
+                   $"Повторений не должен быть меньше {_minRepetitions} " +
+                   $"раз и больше {_maxRepetitions} раз!")
                : value;
         }
 
@@ -111,8 +113,9 @@ namespace Model.Exercises
         private double CheckWeight(double value)
         {
             return value < _minWeight || value > _maxWeight
-                ? throw new ArgumentException($"{value} не должен быть " +
-                    $"меньше {_minWeight} и больше {_maxWeight}!")
+                ? throw new ArgumentException(
+                    $"Введеный вессоставляет:{value} кг. Вес не должен быть " +
+                    $"меньше {_minWeight} кг и больше {_maxWeight} кг!")
                 : value;
         }
 

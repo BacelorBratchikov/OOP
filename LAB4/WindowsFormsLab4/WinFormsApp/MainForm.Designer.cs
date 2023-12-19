@@ -73,14 +73,14 @@ namespace WinFormsApp
             SaveFileToolStripMenuItem.Name = "SaveFileToolStripMenuItem";
             SaveFileToolStripMenuItem.Size = new Size(205, 26);
             SaveFileToolStripMenuItem.Text = "Сохранить файл";
-            SaveFileToolStripMenuItem.Click += SaveFileToolStripMenuItem_Click;
+            SaveFileToolStripMenuItem.Click += SaveFileToolStripMenuItemClick;
             // 
             // LoadFileToolStripMenuItem
             // 
             LoadFileToolStripMenuItem.Name = "LoadFileToolStripMenuItem";
             LoadFileToolStripMenuItem.Size = new Size(205, 26);
             LoadFileToolStripMenuItem.Text = "Загрузить файл";
-            LoadFileToolStripMenuItem.Click += LoadFileToolStripMenuItem_Click;
+            LoadFileToolStripMenuItem.Click += LoadFileToolStripMenuItemClick;
             // 
             // AddButton
             // 
@@ -94,7 +94,7 @@ namespace WinFormsApp
             AddButton.Size = new Size(55, 55);
             AddButton.TabIndex = 1;
             AddButton.UseVisualStyleBackColor = false;
-            AddButton.Click += AddButton_Click;
+            AddButton.Click += AddButtonClick;
             // 
             // dataGridView1
             // 
@@ -144,7 +144,7 @@ namespace WinFormsApp
             DeleteButton.Size = new Size(55, 55);
             DeleteButton.TabIndex = 1;
             DeleteButton.UseVisualStyleBackColor = false;
-            DeleteButton.Click += DeleteButton_Click;
+            DeleteButton.Click += DeleteButtonClick;
             // 
             // FilterButton
             // 
@@ -158,7 +158,7 @@ namespace WinFormsApp
             FilterButton.Size = new Size(55, 55);
             FilterButton.TabIndex = 1;
             FilterButton.UseVisualStyleBackColor = false;
-            FilterButton.Click += FilterButton_Click;
+            FilterButton.Click += FilterButtonClick;
             // 
             // CleanAllButton
             // 
@@ -172,7 +172,7 @@ namespace WinFormsApp
             CleanAllButton.Size = new Size(55, 55);
             CleanAllButton.TabIndex = 1;
             CleanAllButton.UseVisualStyleBackColor = false;
-            CleanAllButton.Click += CleanAllButton_Click;
+            CleanAllButton.Click += CleanAllButtonClick;
             // 
             // MainForm
             // 

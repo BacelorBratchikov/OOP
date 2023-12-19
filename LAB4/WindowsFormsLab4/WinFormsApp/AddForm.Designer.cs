@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Random = new Button();
-            Cancel = new Button();
+            random = new Button();
+            cancel = new Button();
             buttonOk = new Button();
             comboBoxExercise = new ComboBox();
-            label_Chouse = new Label();
+            labelChouse = new Label();
             groupBox1 = new GroupBox();
             addSwimmingUserControl1 = new AddSwimmingUserControl();
             addRunningUserControl1 = new AddRunningUserControl();
@@ -42,23 +42,23 @@
             // 
             // Random
             // 
-            Random.Location = new Point(209, 52);
-            Random.Name = "Random";
-            Random.Size = new Size(140, 30);
-            Random.TabIndex = 26;
-            Random.Text = "Случайная фигура";
-            Random.UseVisualStyleBackColor = true;
-            Random.Click += buttonRandomClick;
+            random.Location = new Point(209, 52);
+            random.Name = "Random";
+            random.Size = new Size(140, 30);
+            random.TabIndex = 26;
+            random.Text = "Случайная фигура";
+            random.UseVisualStyleBackColor = true;
+            random.Click += buttonRandomClick;
             // 
             // Cancel
             // 
-            Cancel.Location = new Point(209, 280);
-            Cancel.Name = "Cancel";
-            Cancel.Size = new Size(140, 30);
-            Cancel.TabIndex = 25;
-            Cancel.Text = "Закрыть";
-            Cancel.UseVisualStyleBackColor = true;
-            Cancel.Click += buttonCancelClick;
+            cancel.Location = new Point(209, 280);
+            cancel.Name = "Cancel";
+            cancel.Size = new Size(140, 30);
+            cancel.TabIndex = 25;
+            cancel.Text = "Закрыть";
+            cancel.UseVisualStyleBackColor = true;
+            cancel.Click += buttonCancelClick;
             // 
             // OK
             // 
@@ -81,12 +81,12 @@
             // 
             // label_Chouse
             // 
-            label_Chouse.AutoSize = true;
-            label_Chouse.Location = new Point(20, 20);
-            label_Chouse.Name = "label_Chouse";
-            label_Chouse.Size = new Size(168, 20);
-            label_Chouse.TabIndex = 21;
-            label_Chouse.Text = "Выберете упражнение";
+            labelChouse.AutoSize = true;
+            labelChouse.Location = new Point(20, 20);
+            labelChouse.Name = "label_Chouse";
+            labelChouse.Size = new Size(168, 20);
+            labelChouse.TabIndex = 21;
+            labelChouse.Text = "Выберете упражнение";
             // 
             // groupBox1
             // 
@@ -127,18 +127,18 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(361, 325);
-            Controls.Add(Random);
-            Controls.Add(Cancel);
+            Controls.Add(random);
+            Controls.Add(cancel);
             Controls.Add(buttonOk);
             Controls.Add(comboBoxExercise);
-            Controls.Add(label_Chouse);
+            Controls.Add(labelChouse);
             Controls.Add(groupBox1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "AddForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Добавление упражнения";
-            Load += AddForm_Load;
+            Load += AddFormLoad;
             groupBox1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
@@ -146,11 +146,11 @@
 
         #endregion
 
-        private Button Random;
-        private Button Cancel;
+        private Button random;
+        private Button cancel;
         private Button buttonOk;
         private ComboBox comboBoxExercise;
-        private Label label_Chouse;
+        private Label labelChouse;
         private AddBarbellPressUserControl addBarbellPressUserControl1;
         private AddRunningUserControl addRunningUserControl1;
         private AddSwimmingUserControl addSwimmingUserControl1;

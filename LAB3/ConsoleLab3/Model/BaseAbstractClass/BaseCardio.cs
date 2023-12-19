@@ -45,8 +45,10 @@ namespace Model.BaseAbstractClass
         private double CheckDistance(double value)
         {
             return value < _minDistance || value > _maxDistance
-                ? throw new ArgumentException($"{value} не должен быть " +
-                    $"меньше {_minDistance} и больше {_maxDistance}!")
+                ? throw new ArgumentException($"" +
+                $"Введеное расстояние составляет:{value} км. " +
+                $"Преодаленное расстояние не может быть меньше " +
+                $"{_minDistance} км и больше {_maxDistance} км!")
                 : value;
         }
     }

@@ -69,9 +69,9 @@ namespace WinFormsApp
         /// <summary>
         /// Метод загрузки формы.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddForm_Load(object sender, EventArgs e)
+        /// <param name="sender">Ссылка на объект.</param>
+        /// <param name="e">Данные о событии.</param>
+        private void AddFormLoad(object sender, EventArgs e)
         {
             addBarbellPressUserControl1.Visible = false;
             addRunningUserControl1.Visible = false;
@@ -83,8 +83,8 @@ namespace WinFormsApp
         /// Действие которое выполняется когда
         /// выбрали упражнение из выпадающего списка.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Ссылка на объект.</param>
+        /// <param name="e">Данные о событии.</param>
         private void comboBoxExercise_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -105,17 +105,24 @@ namespace WinFormsApp
         /// <summary>
         /// Применить.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Ссылка на объект.</param>
+        /// <param name="e">Данные о событии.</param>
         private void buttonOkClick(object sender, EventArgs e)
         {
             try
             {
-                var currentExerciseControlName = comboBoxExercise.SelectedItem.ToString();
-                var currentExerciseControl = _comboBoxToUserControl[currentExerciseControlName];
-                var eventArgs = new ExerciseEventArgs(((IAddedable)currentExerciseControl).AddExercise());
+                var currentExerciseControlName = 
+                    comboBoxExercise.SelectedItem.ToString();
+                var currentExerciseControl = 
+                    _comboBoxToUserControl[currentExerciseControlName];
+                var eventArgs = new ExerciseEventArgs
+                    (((IAddedable)currentExerciseControl).AddExercise());
                 ExerciseAdded?.Invoke(this, eventArgs);
                 DialogResult = DialogResult.OK;
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message);
             }
             catch
             {
@@ -129,8 +136,8 @@ namespace WinFormsApp
         /// <summary>
         /// Закрыть.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Ссылка на объект.</param>
+        /// <param name="e">Данные о событии.</param>
         private void buttonCancelClick(object sender, EventArgs e)
         {
             Close();
@@ -140,8 +147,8 @@ namespace WinFormsApp
         /// <summary>
         /// Рандом.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Ссылка на объект.</param>
+        /// <param name="e">Данные о событии.</param>
         private void buttonRandomClick(object sender, EventArgs e)
         {
             Random random = new Random();

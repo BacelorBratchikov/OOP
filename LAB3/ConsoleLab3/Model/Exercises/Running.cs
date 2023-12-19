@@ -77,8 +77,10 @@ namespace Model.Exercises
         private double CheckSpeed(double value)
         {
             return value < _minSpeed || value > _maxSpeed
-                ? throw new ArgumentException($"{value} не должен быть " +
-                    $"меньше {_minSpeed} и больше {_maxSpeed}!")
+                ? throw new ArgumentException(
+                    $"Введеная скорость составляет:{value} км/ч. " +
+                    $"Скорость бега не может быть меньше {_minSpeed}" +
+                    $" км/ч и больше {_maxSpeed} км/ч!")
                 : value;
         }
 

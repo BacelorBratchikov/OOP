@@ -64,7 +64,7 @@
             CaloriiCheckBox.TabIndex = 6;
             CaloriiCheckBox.Text = "Калории";
             CaloriiCheckBox.UseVisualStyleBackColor = true;
-            CaloriiCheckBox.CheckedChanged += checkBoxCalorii_CheckedChanged;
+            CaloriiCheckBox.CheckedChanged += checkBoxCaloriesCheckedChanged;
             // 
             // SwimmingCheckBox
             // 
@@ -104,7 +104,7 @@
             CaloriiTextBox.Size = new Size(63, 27);
             CaloriiTextBox.TabIndex = 2;
             CaloriiTextBox.TextChanged += textBoxCaloriesTextChanged;
-            CaloriiTextBox.KeyPress += textBoxCalorii_KeyPress;
+            CaloriiTextBox.KeyPress += textBoxCaloriesKeyPress;
             // 
             // BarbellPressCheckBox
             // 
@@ -125,7 +125,7 @@
             FilterButton.TabIndex = 1;
             FilterButton.Text = "Запуск фильтра";
             FilterButton.UseVisualStyleBackColor = true;
-            FilterButton.Click += buttonFilter_Click;
+            FilterButton.Click += buttonFilterClick;
             // 
             // FilterForm
             // 
