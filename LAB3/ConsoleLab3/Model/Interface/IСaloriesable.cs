@@ -5,7 +5,7 @@ namespace Model.Interface
     /// <summary>
     /// Интерфейс содержащий метод расчета калорий.
     /// </summary>
-    internal interface IСaloriesable
+    public interface IСaloriesable
     {
         /// <summary>
         /// Базовый метод считает калории.

@@ -1,5 +1,6 @@
-using Model;
+using Model.EnumsDifferentTypes;
 using Model.Exercises;
+using Model.Interface;
 
 namespace ConsoleLab3
 {

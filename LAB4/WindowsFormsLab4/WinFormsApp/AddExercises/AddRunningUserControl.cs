@@ -13,7 +13,10 @@ using WinFormsApp.AddExercises.Interface;
 
 namespace WinFormsApp
 {
-    //TODO: XML
+    //TODO(+): XML
+    /// <summary>
+    /// Класс добавления бега как UserControl.
+    /// </summary>
     public partial class AddRunningUserControl : UserControl, IAddedable
     {
         /// <summary>
@@ -26,13 +29,13 @@ namespace WinFormsApp
             InitializeComponent();
         }
 
-        //TODO: RSDN
+        //TODO(+): RSDN
         /// <summary>
         /// Контроль ввода значений.
         /// </summary>
         /// <param name="sender">Ссылка на объект.</param>
         /// <param name="e">Данные о событии.</param>
-        private void textBoxCheck_KeyPress(object sender, KeyPressEventArgs e)
+        private void textBoxCheckKeyPress(object sender, KeyPressEventArgs e)
         {
             Utils.CheckInput(e);
         }

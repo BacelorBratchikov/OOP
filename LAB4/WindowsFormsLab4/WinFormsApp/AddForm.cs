@@ -13,10 +13,12 @@ using WinFormsApp.AddExercises.Interface;
 
 namespace WinFormsApp
 {
-    //TODO: XML
+    //TODO(+): XML
+    /// <summary>
+    /// Класс добавление формы.
+    /// </summary>
     public partial class AddForm : Form
     {
-
         /// <summary>
         /// Обработчик события добавления упражнения.
         /// </summary>
@@ -32,7 +34,7 @@ namespace WinFormsApp
         }
 
         /// <summary>
-        /// Словарь UserControls
+        /// Словарь UserControls.
         /// </summary>
         private readonly Dictionary<string, UserControl>
             _comboBoxToUserControl;
@@ -48,8 +50,8 @@ namespace WinFormsApp
 
             comboBoxExercise.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            //TODO: rename
-            OK.Enabled = false;
+            //TODO(+): rename
+            buttonOk.Enabled = false;
 
             string[] typeExercise = { "Жим штанги", "Плавание", "Бег" };
 
@@ -79,33 +81,33 @@ namespace WinFormsApp
         /// <summary>
         /// Выпадающий список.
         /// Действие которое выполняется когда
-        /// выбрали фигуру из выпадающего списка.
+        /// выбрали упражнение из выпадающего списка.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void comboBoxExercise_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            string figureType = comboBoxExercise.SelectedItem.ToString();
-            foreach (var (figure, userControl) in _comboBoxToUserControl)
+            string exerciseType = comboBoxExercise.SelectedItem.ToString();
+            foreach (var (exercise, userControl) in _comboBoxToUserControl)
             {
                 userControl.Visible = false;
-                if (figureType == figure)
+                if (exerciseType == exercise)
                 {
                     userControl.Visible = true;
-                    OK.Enabled = true;
+                    buttonOk.Enabled = true;
                     this.userControl = userControl;
                 }
             }
         }
 
-        //TODO: RSDN
+        //TODO(+): RSDN
         /// <summary>
         /// Применить.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void buttonOK_Click(object sender, EventArgs e)
+        private void buttonOkClick(object sender, EventArgs e)
         {
             try
             {
@@ -123,24 +125,24 @@ namespace WinFormsApp
             }
         }
 
-        //TODO: RSDN
+        //TODO(+): RSDN
         /// <summary>
         /// Закрыть.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void buttonCancel_Click(object sender, EventArgs e)
+        private void buttonCancelClick(object sender, EventArgs e)
         {
             Close();
         }
 
-        //TODO: RSDN
+        //TODO(+): RSDN
         /// <summary>
         /// Рандом.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void buttonRandom_Click(object sender, EventArgs e)
+        private void buttonRandomClick(object sender, EventArgs e)
         {
             Random random = new Random();
 

@@ -71,7 +71,7 @@
             textBoxDistance.Name = "textBoxDistance";
             textBoxDistance.Size = new Size(143, 27);
             textBoxDistance.TabIndex = 1;
-            textBoxDistance.KeyPress += textBoxDistance_KeyPress;
+            textBoxDistance.KeyPress += textBoxDistanceKeyPress;
             // 
             // comboBoxTypeOfSwimming
             // 

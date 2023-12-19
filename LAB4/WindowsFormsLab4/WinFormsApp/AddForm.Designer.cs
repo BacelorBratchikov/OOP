@@ -30,7 +30,7 @@
         {
             Random = new Button();
             Cancel = new Button();
-            OK = new Button();
+            buttonOk = new Button();
             comboBoxExercise = new ComboBox();
             label_Chouse = new Label();
             groupBox1 = new GroupBox();
@@ -48,7 +48,7 @@
             Random.TabIndex = 26;
             Random.Text = "Случайная фигура";
             Random.UseVisualStyleBackColor = true;
-            Random.Click += buttonRandom_Click;
+            Random.Click += buttonRandomClick;
             // 
             // Cancel
             // 
@@ -58,17 +58,17 @@
             Cancel.TabIndex = 25;
             Cancel.Text = "Закрыть";
             Cancel.UseVisualStyleBackColor = true;
-            Cancel.Click += buttonCancel_Click;
+            Cancel.Click += buttonCancelClick;
             // 
             // OK
             // 
-            OK.Location = new Point(20, 280);
-            OK.Name = "OK";
-            OK.Size = new Size(140, 30);
-            OK.TabIndex = 23;
-            OK.Text = "Ok";
-            OK.UseVisualStyleBackColor = true;
-            OK.Click += buttonOK_Click;
+            buttonOk.Location = new Point(20, 280);
+            buttonOk.Name = "OK";
+            buttonOk.Size = new Size(140, 30);
+            buttonOk.TabIndex = 23;
+            buttonOk.Text = "Ok";
+            buttonOk.UseVisualStyleBackColor = true;
+            buttonOk.Click += buttonOkClick;
             // 
             // comboBoxExercise
             // 
@@ -129,7 +129,7 @@
             ClientSize = new Size(361, 325);
             Controls.Add(Random);
             Controls.Add(Cancel);
-            Controls.Add(OK);
+            Controls.Add(buttonOk);
             Controls.Add(comboBoxExercise);
             Controls.Add(label_Chouse);
             Controls.Add(groupBox1);
@@ -148,7 +148,7 @@
 
         private Button Random;
         private Button Cancel;
-        private Button OK;
+        private Button buttonOk;
         private ComboBox comboBoxExercise;
         private Label label_Chouse;
         private AddBarbellPressUserControl addBarbellPressUserControl1;

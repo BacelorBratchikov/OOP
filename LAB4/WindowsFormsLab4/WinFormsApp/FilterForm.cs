@@ -12,7 +12,10 @@ using System.Windows.Forms;
 
 namespace WinFormsApp
 {
-    //TODO: XML
+    //TODO(+): XML
+    /// <summary>
+    /// Класс осуществляющий фильтрацию.
+    /// </summary>
     public partial class FilterForm : Form
     {
         /// <summary>
@@ -25,18 +28,17 @@ namespace WinFormsApp
         /// </summary>
         private BindingList<BaseExerсise> _listExerсiseFilter;
 
-
         /// <summary>
         /// Обработчик события.
         /// </summary>
         public EventHandler<EventArgs> ExerсiseFiltered;
 
-        //TODO: RSDN
-        //TODO: rename
+        //TODO(+): RSDN
+        //TODO(+): rename
         /// <summary>
         /// Калории.
         /// </summary>
-        private double calorii;
+        private double _calories;
 
         /// <summary>
         /// Initializes a new instance of the
@@ -51,19 +53,19 @@ namespace WinFormsApp
             CaloriiTextBox.Enabled = false;
         }
 
-        //TODO: RSDN
+        //TODO(+): RSDN
         /// <summary>
         /// Ввод калориев.
         /// </summary>
         /// <param name="sender">Ссылка на объект.</param>
         /// <param name="e">Данные о событии.</param>
-        private void textBoxCalorii_TextChanged(object sender, EventArgs e)
+        private void textBoxCaloriesTextChanged(object sender, EventArgs e)
         {
             try
             {
                 if (CaloriiTextBox.Text != string.Empty)
                 {
-                    calorii = Utils.CheckNumber(CaloriiTextBox.Text);
+                    _calories = Utils.CheckNumber(CaloriiTextBox.Text);
                 }
             }
             catch
@@ -126,7 +128,7 @@ namespace WinFormsApp
                         {
                             if (CaloriiCheckBox.Checked)
                             {
-                                if (exerсise.Calories == calorii)
+                                if (exerсise.Calories == _calories)
                                 {
                                     count++;
                                     _listExerсiseFilter.Add(exerсise);
@@ -148,7 +150,7 @@ namespace WinFormsApp
                     && !RunningCheckBox.Checked
                     && !SwimmingCheckBox.Checked)
                 {
-                    if (CaloriiCheckBox.Checked && exerсise.Calories == calorii)
+                    if (CaloriiCheckBox.Checked && exerсise.Calories == _calories)
                     {
                         count++;
                         _listExerсiseFilter.Add(exerсise);

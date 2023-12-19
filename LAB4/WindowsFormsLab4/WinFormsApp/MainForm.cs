@@ -4,26 +4,29 @@ using Model.BaseAbstractClass;
 
 namespace WinFormsApp
 {
-    //TODO: XML
+    //TODO(+): XML
+    /// <summary>
+    /// Класс главной формы.
+    /// </summary>
     public partial class MainForm : Form
     {
-        //TODO: RSDN
+        //TODO(+): RSDN
         /// <summary>
         /// Cписок упражнений.
         /// </summary>
-        private BindingList<BaseExerсise> exerciseList = new();
+        private BindingList<BaseExerсise> _exerciseList = new();
 
-        //TODO: RSDN
+        //TODO(+): RSDN
         /// <summary>
         /// Отфильтрованый список.
         /// </summary>
-        private BindingList<BaseExerсise> filteredList = new();
+        private BindingList<BaseExerсise> _filteredList = new();
 
-        //TODO: RSDN
+        //TODO(+): RSDN
         /// <summary>
         /// Для файлов.
         /// </summary>
-        private readonly XmlSerializer serializer = new
+        private readonly XmlSerializer _serializer = new
             XmlSerializer(typeof(BindingList<BaseExerсise>));
 
         /// <summary>
@@ -33,7 +36,7 @@ namespace WinFormsApp
         public MainForm()
         {
             this.InitializeComponent();
-            var source = new BindingSource(exerciseList, null);
+            var source = new BindingSource(_exerciseList, null);
             dataGridView1.DataSource = source;
 
             dataGridView1.Columns[0].AutoSizeMode =
@@ -51,9 +54,9 @@ namespace WinFormsApp
 
             addExetciseForm.ExerciseAdded += (sender, exerciseEventArgs) =>
             {
-                this.exerciseList.Add(
+                this._exerciseList.Add(
                     ((ExerciseEventArgs)exerciseEventArgs).Exerсise);
-                dataGridView1.DataSource = exerciseList;
+                dataGridView1.DataSource = _exerciseList;
             };
 
             addExetciseForm.Closed += (_, _) =>
@@ -76,9 +79,9 @@ namespace WinFormsApp
             {
                 foreach (DataGridViewRow row in this.dataGridView1.SelectedRows)
                 {
-                    this.exerciseList.Remove(row.DataBoundItem as BaseExerсise);
+                    this._exerciseList.Remove(row.DataBoundItem as BaseExerсise);
 
-                    this.exerciseList.Remove(row.DataBoundItem as BaseExerсise);
+                    this._exerciseList.Remove(row.DataBoundItem as BaseExerсise);
                 }
             }
         }
@@ -90,13 +93,13 @@ namespace WinFormsApp
         /// <param name="e">Данные о событии.</param>
         private void FilterButton_Click(object sender, EventArgs e)
         {
-            var newFilterForm = new FilterForm(this.exerciseList);
+            var newFilterForm = new FilterForm(this._exerciseList);
             newFilterForm.Show();
             newFilterForm.ExerсiseFiltered += (sender, exerciseEventArgs) =>
             {
                 this.dataGridView1.DataSource =
                     ((ExerciseListEventArgs)exerciseEventArgs).ExerсiseList;
-                this.filteredList =
+                this._filteredList =
                     ((ExerciseListEventArgs)exerciseEventArgs).ExerсiseList;
             };
         }
@@ -108,14 +111,14 @@ namespace WinFormsApp
         /// <param name="e">Данные о событии.</param>
         private void CleanAllButton_Click(object sender, EventArgs e)
         {
-            if (exerciseList.Count != 0)
+            if (_exerciseList.Count != 0)
             {
                 if (MessageBox.Show(
                     "Вы действительно хотите очистить список всех изданий?",
                     "Очистка всех изданий",
                     MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    this.exerciseList.Clear();
+                    this._exerciseList.Clear();
                 }
             }
         }
@@ -127,7 +130,7 @@ namespace WinFormsApp
         /// <param name="e">Данные о событии.</param>
         private void SaveFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (this.exerciseList.Count != 0)
+            if (this._exerciseList.Count != 0)
             {
                 var saveFileDialog = new SaveFileDialog
                 {
@@ -139,7 +142,7 @@ namespace WinFormsApp
                     var path = saveFileDialog.FileName.ToString();
                     using (FileStream file = File.Create(path))
                     {
-                        this.serializer.Serialize(file, this.exerciseList);
+                        this._serializer.Serialize(file, this._exerciseList);
                     }
 
                     MessageBox.Show(
@@ -179,11 +182,11 @@ namespace WinFormsApp
                 {
                     using (var file = new StreamReader(path))
                     {
-                        this.exerciseList = (BindingList<BaseExerсise>)
-                            this.serializer.Deserialize(file);
+                        this._exerciseList = (BindingList<BaseExerсise>)
+                            this._serializer.Deserialize(file);
                     }
 
-                    this.dataGridView1.DataSource = this.exerciseList;
+                    this.dataGridView1.DataSource = this._exerciseList;
                     this.dataGridView1.CurrentCell = null;
                     MessageBox.Show(
                         "Файл успешно загружен.",

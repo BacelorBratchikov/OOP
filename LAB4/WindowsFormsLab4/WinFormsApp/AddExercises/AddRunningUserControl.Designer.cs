@@ -82,7 +82,7 @@
             textBoxDistance.Name = "textBoxDistance";
             textBoxDistance.Size = new Size(125, 27);
             textBoxDistance.TabIndex = 1;
-            textBoxDistance.KeyPress += textBoxCheck_KeyPress;
+            textBoxDistance.KeyPress += textBoxCheckKeyPress;
             // 
             // textBoxSpeed
             // 
@@ -90,7 +90,7 @@
             textBoxSpeed.Name = "textBoxSpeed";
             textBoxSpeed.Size = new Size(125, 27);
             textBoxSpeed.TabIndex = 1;
-            textBoxSpeed.KeyPress += textBoxCheck_KeyPress;
+            textBoxSpeed.KeyPress += textBoxCheckKeyPress;
             // 
             // AddRunningUserControl
             // 

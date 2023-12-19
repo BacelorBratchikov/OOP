@@ -14,15 +14,18 @@ using WinFormsApp.AddExercises.Interface;
 
 namespace WinFormsApp
 {
-    //TODO: XML
+    //TODO(+): XML
+    /// <summary>
+    /// Класс добавления UserControl плавания (вид упражнения).
+    /// </summary>
     public partial class AddSwimmingUserControl : UserControl, IAddedable
     {
-        //TODO: RSDN
+        //TODO(+): RSDN
         /// <summary>
         /// Словарь TypesOfSwimming.
         /// </summary>
         private readonly Dictionary<string, TypesOfSwimming>
-            comboBoxToTypesOfSwimming;
+            _dictionaryToTypesOfSwimming;
 
         /// <summary>
         /// Initializes a new instance of the <see
@@ -42,7 +45,7 @@ namespace WinFormsApp
                  { typeSwimming[0], typeSwimming[1], typeSwimming[2],
                      typeSwimming[3] });
 
-            comboBoxToTypesOfSwimming = new Dictionary<string, TypesOfSwimming>()
+            _dictionaryToTypesOfSwimming = new Dictionary<string, TypesOfSwimming>()
             {
                 {typeSwimming[0], TypesOfSwimming.Breaststroke},
                 {typeSwimming[1], TypesOfSwimming.Crawl},
@@ -51,13 +54,13 @@ namespace WinFormsApp
             };
         }
 
-        //TODO: RSDN
+        //TODO(+): RSDN
         /// <summary>
         /// Контроль ввода значений.
         /// </summary>
         /// <param name="sender">Ссылка на объект.</param>
         /// <param name="e">Данные о событии.</param>
-        private void textBoxDistance_KeyPress(object sender, KeyPressEventArgs e)
+        private void textBoxDistanceKeyPress(object sender, KeyPressEventArgs e)
         {
             Utils.CheckInput(e);
         }
@@ -69,9 +72,11 @@ namespace WinFormsApp
         public BaseExerсise AddExercise()
         {
             var swimming = new Swimming();
-            //TODO: RSDN
-            var currentSwimmingTypeControlName = Utils.CheckTypeOfSwimming(comboBoxTypeOfSwimming.SelectedItem.ToString());
-            swimming.SwimmingType = comboBoxToTypesOfSwimming[currentSwimmingTypeControlName];
+            //TODO(+): RSDN
+            var currentSwimmingTypeControlName =Utils.CheckTypeOfSwimming
+                (comboBoxTypeOfSwimming.SelectedItem.ToString());
+            swimming.SwimmingType = 
+                _dictionaryToTypesOfSwimming[currentSwimmingTypeControlName];
             swimming.Distance = Utils.CheckNumber(textBoxDistance.Text);
 
             return swimming;

@@ -8,7 +8,10 @@ using System.Threading.Tasks;
 
 namespace WinFormsApp
 {
-    //TODO: XML
+    //TODO(+): XML
+    /// <summary>
+    /// Класс списка событий при добавлении упражнений.
+    /// </summary>
     public class ExerciseListEventArgs : EventArgs
     {
         /// <summary>

@@ -103,7 +103,7 @@
             CaloriiTextBox.Name = "CaloriiTextBox";
             CaloriiTextBox.Size = new Size(63, 27);
             CaloriiTextBox.TabIndex = 2;
-            CaloriiTextBox.TextChanged += textBoxCalorii_TextChanged;
+            CaloriiTextBox.TextChanged += textBoxCaloriesTextChanged;
             CaloriiTextBox.KeyPress += textBoxCalorii_KeyPress;
             // 
             // BarbellPressCheckBox
