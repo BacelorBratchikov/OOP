@@ -14,13 +14,11 @@ using WinFormsApp.AddExercises.Interface;
 
 namespace WinFormsApp
 {
-    //TODO(+): XML
     /// <summary>
     /// Класс добавления UserControl плавания (вид упражнения).
     /// </summary>
     public partial class AddSwimmingUserControl : UserControl, IAddedable
     {
-        //TODO(+): RSDN
         /// <summary>
         /// Словарь TypesOfSwimming.
         /// </summary>
@@ -54,7 +52,7 @@ namespace WinFormsApp
             };
         }
 
-        //TODO(+): RSDN
+        //TODO: RSDN
         /// <summary>
         /// Контроль ввода значений.
         /// </summary>
@@ -72,9 +70,8 @@ namespace WinFormsApp
         public BaseExerсise AddExercise()
         {
             var swimming = new Swimming();
-            //TODO(+): RSDN
-            var currentSwimmingTypeControlName =Utils.CheckTypeOfSwimming
-                (comboBoxTypeOfSwimming.SelectedItem.ToString());
+            var currentSwimmingTypeControlName =
+                Utils.CheckTypeOfSwimming(comboBoxTypeOfSwimming.SelectedItem.ToString());
             swimming.SwimmingType = 
                 _dictionaryToTypesOfSwimming[currentSwimmingTypeControlName];
             swimming.Distance = Utils.CheckNumber(textBoxDistance.Text);

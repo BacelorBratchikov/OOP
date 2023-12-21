@@ -29,7 +29,7 @@ namespace WinFormsApp
             InitializeComponent();
         }
 
-        //TODO(+): RSDN
+        //TODO: RSDN
         /// <summary>
         /// Контроль ввода значений.
         /// </summary>

@@ -4,25 +4,21 @@ using Model.BaseAbstractClass;
 
 namespace WinFormsApp
 {
-    //TODO(+): XML
     /// <summary>
     /// Класс главной формы.
     /// </summary>
     public partial class MainForm : Form
     {
-        //TODO(+): RSDN
         /// <summary>
         /// Cписок упражнений.
         /// </summary>
         private BindingList<BaseExerсise> _exerciseList = new();
 
-        //TODO(+): RSDN
         /// <summary>
         /// Отфильтрованый список.
         /// </summary>
         private BindingList<BaseExerсise> _filteredList = new();
 
-        //TODO(+): RSDN
         /// <summary>
         /// Для файлов.
         /// </summary>

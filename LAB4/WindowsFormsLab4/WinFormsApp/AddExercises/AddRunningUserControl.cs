@@ -13,7 +13,6 @@ using WinFormsApp.AddExercises.Interface;
 
 namespace WinFormsApp
 {
-    //TODO(+): XML
     /// <summary>
     /// Класс добавления бега как UserControl.
     /// </summary>
@@ -29,7 +28,7 @@ namespace WinFormsApp
             InitializeComponent();
         }
 
-        //TODO(+): RSDN
+        //TODO: RSDN
         /// <summary>
         /// Контроль ввода значений.
         /// </summary>

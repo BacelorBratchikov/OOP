@@ -12,7 +12,6 @@ using System.Windows.Forms;
 
 namespace WinFormsApp
 {
-    //TODO(+): XML
     /// <summary>
     /// Класс осуществляющий фильтрацию.
     /// </summary>
@@ -33,8 +32,6 @@ namespace WinFormsApp
         /// </summary>
         public EventHandler<EventArgs> ExerсiseFiltered;
 
-        //TODO(+): RSDN
-        //TODO(+): rename
         /// <summary>
         /// Калории.
         /// </summary>
@@ -53,7 +50,7 @@ namespace WinFormsApp
             CaloriiTextBox.Enabled = false;
         }
 
-        //TODO(+): RSDN
+        //TODO: RSDN
         /// <summary>
         /// Ввод калориев.
         /// </summary>
