@@ -100,16 +100,17 @@ namespace Model.Exercises
             return value < _minRepetitions || value > _maxRepetitions
                ? throw new ArgumentException(
                    $"Введеное количество повтарений составляет:{value} раз. " +
-                   $"Повторений не должен быть меньше {_minRepetitions} " +
+                   $"Повторений не должно быть меньше {_minRepetitions} " +
                    $"раз и больше {_maxRepetitions} раз!")
                : value;
         }
 
+        /// <summary>
         /// Метод проверяющий заполнение веса.
         /// </summary>
         /// <param name="value">Вес.</param>
         /// <returns>Вес.</returns>
-        /// <exception cref="ArgumentException">Ловится ошибка.</exception>
+        /// <exception cref="ArgumentException">Ошибка.</exception>
         private double CheckWeight(double value)
         {
             return value < _minWeight || value > _maxWeight || value is double.NaN

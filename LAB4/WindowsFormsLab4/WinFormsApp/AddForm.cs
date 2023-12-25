@@ -122,6 +122,10 @@ namespace WinFormsApp
             {
                 MessageBox.Show(ex.Message);
             }
+            catch (FormatException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             catch
             {
                 MessageBox.Show(

@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace Model.RandomExercise
 {
     /// <summary>
-    /// Метод создания рандомного упражнения.
+    /// Класс создания рандомного упражнения.
     /// </summary>
     public class RandomExercise : BaseRandomExerise
     {

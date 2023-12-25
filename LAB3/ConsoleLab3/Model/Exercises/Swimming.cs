@@ -33,7 +33,7 @@ namespace Model.Exercises
         public override string TypeOfExerise => "Плавание";
 
         /// <summary>
-        /// Gets информация по жиму штанги.
+        /// Gets информация по плаванию.
         /// </summary>
         public override string GetInfo =>
             $"Дистанция: {Distance} км; тип плавания: {SwimmingType}.";

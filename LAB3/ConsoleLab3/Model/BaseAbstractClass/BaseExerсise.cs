@@ -30,7 +30,7 @@ namespace Model.BaseAbstractClass
         public abstract string GetInfo { get; }
 
         /// <summary>
-        /// Gets метод, возвращающий информацию о сожженых калориях.
+        /// Gets метод, возвращающий информацию о сожженных калориях.
         /// </summary>
         [DisplayName("Калориев сожжено, ккал")]
         public abstract double Calories { get; }

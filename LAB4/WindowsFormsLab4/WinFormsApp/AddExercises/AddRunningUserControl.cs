@@ -40,7 +40,7 @@ namespace WinFormsApp
         }
 
         /// <summary>
-        /// Метод создания пирамиды.
+        /// Метод создания бега.
         /// </summary>
         /// <returns>Созданный класс.</returns>
         public BaseExerсise AddExercise()
