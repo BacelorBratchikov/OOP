@@ -29,13 +29,13 @@ namespace WinFormsApp
             InitializeComponent();
         }
 
-        //TODO: RSDN
+        //TODO(+): RSDN
         /// <summary>
         /// Контроль ввода значений.
         /// </summary>
         /// <param name="sender">Ссылка на объект.</param>
         /// <param name="e">Данные о событии.</param>
-        private void textBoxCheckKeyPress(object sender, KeyPressEventArgs e)
+        private void TextBoxCheckKeyPress(object sender, KeyPressEventArgs e)
         {
             Utils.CheckInput(e);
         }

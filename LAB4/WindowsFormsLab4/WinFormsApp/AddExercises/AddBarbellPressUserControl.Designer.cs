@@ -82,7 +82,7 @@
             textBoxRepetitions.Name = "textBoxRepetitions";
             textBoxRepetitions.Size = new Size(125, 27);
             textBoxRepetitions.TabIndex = 1;
-            textBoxRepetitions.KeyPress += textBoxCheckKeyPress;
+            textBoxRepetitions.KeyPress += TextBoxCheckKeyPress;
             // 
             // textBoxWeight
             // 
@@ -90,7 +90,7 @@
             textBoxWeight.Name = "textBoxWeight";
             textBoxWeight.Size = new Size(125, 27);
             textBoxWeight.TabIndex = 1;
-            textBoxWeight.KeyPress += textBoxCheckKeyPress;
+            textBoxWeight.KeyPress += TextBoxCheckKeyPress;
             // 
             // AddBarbellPressUserControl
             // 

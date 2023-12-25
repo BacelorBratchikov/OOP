@@ -48,7 +48,7 @@
             random.TabIndex = 26;
             random.Text = "Случайная фигура";
             random.UseVisualStyleBackColor = true;
-            random.Click += buttonRandomClick;
+            random.Click += ButtonRandomClick;
             // 
             // Cancel
             // 
@@ -58,7 +58,7 @@
             cancel.TabIndex = 25;
             cancel.Text = "Закрыть";
             cancel.UseVisualStyleBackColor = true;
-            cancel.Click += buttonCancelClick;
+            cancel.Click += ButtonCancelClick;
             // 
             // OK
             // 
@@ -68,7 +68,7 @@
             buttonOk.TabIndex = 23;
             buttonOk.Text = "Ok";
             buttonOk.UseVisualStyleBackColor = true;
-            buttonOk.Click += buttonOkClick;
+            buttonOk.Click += ButtonOkClick;
             // 
             // comboBoxExercise
             // 
@@ -77,7 +77,7 @@
             comboBoxExercise.Name = "comboBoxExercise";
             comboBoxExercise.Size = new Size(168, 28);
             comboBoxExercise.TabIndex = 22;
-            comboBoxExercise.SelectedIndexChanged += comboBoxExercise_SelectedIndexChanged;
+            comboBoxExercise.SelectedIndexChanged += ComboBoxExerciseSelectedIndexChanged;
             // 
             // label_Chouse
             // 

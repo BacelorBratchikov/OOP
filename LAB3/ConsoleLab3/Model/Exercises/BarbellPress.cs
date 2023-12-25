@@ -112,7 +112,7 @@ namespace Model.Exercises
         /// <exception cref="ArgumentException">Ловится ошибка.</exception>
         private double CheckWeight(double value)
         {
-            return value < _minWeight || value > _maxWeight
+            return value < _minWeight || value > _maxWeight || value is double.NaN
                 ? throw new ArgumentException(
                     $"Введеный вессоставляет:{value} кг. Вес не должен быть " +
                     $"меньше {_minWeight} кг и больше {_maxWeight} кг!")

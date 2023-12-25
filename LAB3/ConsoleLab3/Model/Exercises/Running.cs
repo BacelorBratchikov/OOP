@@ -76,12 +76,12 @@ namespace Model.Exercises
         /// <exception cref="ArgumentException">Ловится ошибка.</exception>
         private double CheckSpeed(double value)
         {
-            return value < _minSpeed || value > _maxSpeed
+            return value < _minSpeed || value > _maxSpeed || value is double.NaN
                 ? throw new ArgumentException(
                     $"Введеная скорость составляет:{value} км/ч. " +
                     $"Скорость бега не может быть меньше {_minSpeed}" +
                     $" км/ч и больше {_maxSpeed} км/ч!")
-                : value;
+                : (double)value;
         }
 
         /// <summary>

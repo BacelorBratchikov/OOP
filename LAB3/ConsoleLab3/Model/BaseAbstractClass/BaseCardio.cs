@@ -44,12 +44,17 @@ namespace Model.BaseAbstractClass
         /// <exception cref="ArgumentException">Ловится ошибка.</exception>
         private double CheckDistance(double value)
         {
-            return value < _minDistance || value > _maxDistance
-                ? throw new ArgumentException($"" +
+            if (value < _minDistance || value > _maxDistance || value is double.NaN)
+            {
+                throw new ArgumentException($"" +
                 $"Введеное расстояние составляет:{value} км. " +
                 $"Преодаленное расстояние не может быть меньше " +
-                $"{_minDistance} км и больше {_maxDistance} км!")
-                : value;
+                $"{_minDistance} км и больше {_maxDistance} км!");
+            }
+            else
+            {
+                return (double)value;
+            }
         }
     }
 }

@@ -50,13 +50,13 @@ namespace WinFormsApp
             CaloriiTextBox.Enabled = false;
         }
 
-        //TODO: RSDN
+        //TODO(+): RSDN
         /// <summary>
         /// Ввод калориев.
         /// </summary>
         /// <param name="sender">Ссылка на объект.</param>
         /// <param name="e">Данные о событии.</param>
-        private void textBoxCaloriesTextChanged(object sender, EventArgs e)
+        private void TextBoxCaloriesTextChanged(object sender, EventArgs e)
         {
             try
             {
@@ -77,7 +77,7 @@ namespace WinFormsApp
         /// </summary>
         /// <param name="sender">Ссылка на объект.</param>
         /// <param name="e">Данные о событии.</param>
-        private void textBoxCaloriesKeyPress(object sender, KeyPressEventArgs e)
+        private void TextBoxCaloriesKeyPress(object sender, KeyPressEventArgs e)
         {
             Utils.CheckInput(e);
         }
@@ -87,7 +87,7 @@ namespace WinFormsApp
         /// </summary>
         /// <param name="sender">Ссылка на объект.</param>
         /// <param name="e">Данные о событии.</param>
-        private void checkBoxCaloriesCheckedChanged(object sender, EventArgs e)
+        private void CheckBoxCaloriesCheckedChanged(object sender, EventArgs e)
         {
             if (CaloriiCheckBox.Checked)
             {
@@ -100,7 +100,7 @@ namespace WinFormsApp
         /// </summary>
         /// <param name="sender">Ссылка на объект.</param>
         /// <param name="e">Данные о событии.</param>
-        private void buttonFilterClick(object sender, EventArgs e)
+        private void ButtonFilterClick(object sender, EventArgs e)
         {
             _listExerсiseFilter = new BindingList<BaseExerсise>();
 

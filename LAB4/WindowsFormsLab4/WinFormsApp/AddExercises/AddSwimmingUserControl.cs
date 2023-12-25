@@ -52,13 +52,13 @@ namespace WinFormsApp
             };
         }
 
-        //TODO: RSDN
+        //TODO(+): RSDN
         /// <summary>
         /// Контроль ввода значений.
         /// </summary>
         /// <param name="sender">Ссылка на объект.</param>
         /// <param name="e">Данные о событии.</param>
-        private void textBoxDistanceKeyPress(object sender, KeyPressEventArgs e)
+        private void TextBoxDistanceKeyPress(object sender, KeyPressEventArgs e)
         {
             Utils.CheckInput(e);
         }

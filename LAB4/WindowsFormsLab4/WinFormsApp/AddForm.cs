@@ -83,7 +83,7 @@ namespace WinFormsApp
         /// </summary>
         /// <param name="sender">Ссылка на объект.</param>
         /// <param name="e">Данные о событии.</param>
-        private void comboBoxExercise_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboBoxExerciseSelectedIndexChanged(object sender, EventArgs e)
         {
 
             string exerciseType = comboBoxExercise.SelectedItem.ToString();
@@ -99,13 +99,13 @@ namespace WinFormsApp
             }
         }
 
-        //TODO: RSDN
+        //TODO(+): RSDN
         /// <summary>
         /// Применить.
         /// </summary>
         /// <param name="sender">Ссылка на объект.</param>
         /// <param name="e">Данные о событии.</param>
-        private void buttonOkClick(object sender, EventArgs e)
+        private void ButtonOkClick(object sender, EventArgs e)
         {
             try
             {
@@ -130,24 +130,24 @@ namespace WinFormsApp
             }
         }
 
-        //TODO: RSDN
+        //TODO(+): RSDN
         /// <summary>
         /// Закрыть.
         /// </summary>
         /// <param name="sender">Ссылка на объект.</param>
         /// <param name="e">Данные о событии.</param>
-        private void buttonCancelClick(object sender, EventArgs e)
+        private void ButtonCancelClick(object sender, EventArgs e)
         {
             Close();
         }
 
-        //TODO: RSDN
+        //TODO(+): RSDN
         /// <summary>
         /// Рандом.
         /// </summary>
         /// <param name="sender">Ссылка на объект.</param>
         /// <param name="e">Данные о событии.</param>
-        private void buttonRandomClick(object sender, EventArgs e)
+        private void ButtonRandomClick(object sender, EventArgs e)
         {
             Random random = new Random();
 
