@@ -99,7 +99,6 @@ namespace WinFormsApp
             }
         }
 
-        //TODO(+): RSDN
         /// <summary>
         /// Применить.
         /// </summary>
@@ -134,7 +133,6 @@ namespace WinFormsApp
             }
         }
 
-        //TODO(+): RSDN
         /// <summary>
         /// Закрыть.
         /// </summary>
@@ -145,7 +143,6 @@ namespace WinFormsApp
             Close();
         }
 
-        //TODO(+): RSDN
         /// <summary>
         /// Рандом.
         /// </summary>

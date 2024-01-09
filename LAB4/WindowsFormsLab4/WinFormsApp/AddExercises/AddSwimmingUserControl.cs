@@ -52,7 +52,6 @@ namespace WinFormsApp
             };
         }
 
-        //TODO(+): RSDN
         /// <summary>
         /// Контроль ввода значений.
         /// </summary>

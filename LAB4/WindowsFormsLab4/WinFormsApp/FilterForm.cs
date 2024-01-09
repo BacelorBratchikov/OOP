@@ -50,7 +50,6 @@ namespace WinFormsApp
             CaloriiTextBox.Enabled = false;
         }
 
-        //TODO(+): RSDN
         /// <summary>
         /// Ввод калориев.
         /// </summary>
