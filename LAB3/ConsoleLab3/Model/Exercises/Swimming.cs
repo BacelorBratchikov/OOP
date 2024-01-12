@@ -18,7 +18,7 @@ namespace Model.Exercises
         /// Словарь, в котором ключ - тип плавания, а значение - его
         /// калорийные затраты.
         /// </summary>
-        private Dictionary<TypesOfSwimming, int>
+        private static Dictionary<TypesOfSwimming, int>
             _dictCalorieBySwimmingType = new Dictionary<TypesOfSwimming, int>()
             {
                 [TypesOfSwimming.Breaststroke] = 183,
